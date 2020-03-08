@@ -1,0 +1,5 @@
+{
+    <% _.forEach(files, function(file, index, arr) { %>
+        "<%= file.originalPath %>": "<%= file.versionedPath %>"<% if (index !== (arr.length -1)) {  %>,<% } %>
+    <% }); %>
+}
