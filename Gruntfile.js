@@ -102,7 +102,7 @@ module.exports = function (grunt) {
           // Main CSS file
           './assets/css/main.css': './src/scss/main.scss',
           // Inline & additional files (other)
-          //'./assets/css/preloader.css': './src/scss/preloader.scss',
+          './assets/css/preloader.css': './src/scss/preloader.scss',
         }
       }
     },
@@ -114,7 +114,7 @@ module.exports = function (grunt) {
       dist: {
         files: {
           './assets/css/main.css': './assets/css/main.css',
-          // './assets/css/preloader.css': './src/scss/preloader.css'
+          './assets/css/preloader.css': './src/scss/preloader.css'
         }
       }
     },
@@ -128,7 +128,8 @@ module.exports = function (grunt) {
       target: {
         files: {
           // Main CSS
-          './assets/css/main.min.css': './assets/css/main.css'
+          './assets/css/main.min.css': './assets/css/main.css',
+          './assets/css/preloader.min.css': './assets/css/preloader.css'
         }
       }
     },

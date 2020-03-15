@@ -1,0 +1,14 @@
+<!-- @begin: shared stylesheets -->
+{# All shared stylesheets that might be combined #}
+{% set stylesheets = [] %}
+
+{% if this.environment == 'dev' %}
+    <link href="{{ 'assets/css/main.css'|theme }}" rel="stylesheet">
+    {% for sheet in stylesheets %}
+        <link href="{{ sheet|theme }}" rel="stylesheet">
+    {% endfor %}
+{% else %}
+    <link href="{{ 'assets/css/main.min.css'|revision|theme }}" rel="stylesheet">
+    {# <link href="{{ stylesheets|theme }}" rel="stylesheet"> #}
+{% endif %}
+<!-- @end: shared stylesheets -->

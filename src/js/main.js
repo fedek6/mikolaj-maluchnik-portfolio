@@ -7,6 +7,7 @@
  * Please conform to JSDoc:
  * @link https://jsdoc.app/tags-param.html#examples
  */
+import { hidePreloader, showPreloader } from './components/preloader'
 
 // Little hello world to test compilers/transpilers 
 
@@ -14,3 +15,15 @@
 let greetingMessage = "%cHello there! Want to hire me?\n Go to http://realhe.ro \n :)"
 
 console.log(greetingMessage, 'background: #000; color: Yellow; font-size: 1.25em')
+
+/**
+ * Windo onload
+ */
+window.onload = function() {
+
+    // Hide preloader
+    setTimeout( () => {
+        hidePreloader()
+    }, 1000)
+    
+};

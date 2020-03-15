@@ -6,13 +6,14 @@
 
 
 
+/// Header font family
+/// @type List
+$header-font-stack: 'Playfair Display', serif !default;
+
+
 /// Regular font family
 /// @type List
-$text-font-stack: 'Open Sans', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !default;
-
-/// Code (monospace) font family
-/// @type List
-$code-font-stack: 'Courier New', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Monaco', monospace !default;
+$text-font-stack: 'Roboto', sans-serif !default;
 
 
 
@@ -20,23 +21,20 @@ $code-font-stack: 'Courier New', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono',
 
 /// Copy text color
 /// @type Color
-$text-color: rgb(34, 34, 34) !default;
+$text-color: rgb(0, 0, 0) !default;
 
 /// Main brand color
 /// @type Color
-$brand-color: rgb(229, 0, 80) !default;
+$brand-color: rgb(0, 0, 0) !default;
 
-/// Light grey
-/// @type Color
-$light-grey: rgb(237, 237, 237) !default;
 
-/// Medium grey
+/// Active UX elements
 /// @type Color
-$mid-grey: rgb(153, 153, 153) !default;
+$active-ux: rgb(0, 0, 0) !default;
 
-/// Dark grey
+/// Non active UX elements
 /// @type Color
-$dark-grey: rgb(68, 68, 68) !default;
+$non-active-ux: #dcdcdc !default;
 
 
 
@@ -51,14 +49,14 @@ $max-width: 1180px !default;
 
 
 /// Breakpoints map
+/// @link {https://css-tricks.com/snippets/sass/mixin-manage-breakpoints/}
 /// @prop {String} keys - Keys are identifiers mapped to a given length
-/// @prop {Map} values - Values are actual breakpoints expressed in pixels
+/// @prop {Map} values - Values are actual breakpoints
 $breakpoints: (
-  'small': 320px,
-  'medium': 768px,
-  'large': 1024px,
+  'small':  ( min-width:  767px ),
+  'medium': ( min-width:  992px ),
+  'large':  ( min-width: 1200px )
 ) !default;
-
 
 
 
@@ -68,4 +66,4 @@ $breakpoints: (
 /// @type String
 /// @example scss - When using a CDN
 ///   $base-url: 'http://cdn.example.com/assets/';
-$base-url: '/assets/' !default;
+$base-url: '../' !default;

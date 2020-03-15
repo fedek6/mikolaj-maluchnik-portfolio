@@ -1,0 +1,73 @@
+html {
+    overflow-y: scroll;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0 0;
+    padding: 0 0;
+}
+
+#preloader {
+    width: 100vw;
+    height: 100vh;
+    background: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: opacity .5s ease-out;
+    
+    // Center contents
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: stretch;
+    align-items: center;
+
+    // Hide animation
+    &.hide {
+        opacity: 0;
+    }
+
+    // Remove element
+    &[aria-hidden="true"] {
+        display: none;
+    }
+
+    // Element with animated spinner
+    > :first-child {
+        order: 0;
+        flex: 0 1 auto;
+        align-self: auto;
+        width: 48px;
+        height: 48px;
+
+        animation: rotation 1.6s infinite cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+        &.animate-hide {
+            width: 200px;
+            height: 200px;
+            transition: all .7s ease-in;
+        }
+
+        > svg {
+            max-width: 100%;
+            height: auto;
+
+            path {
+                fill: #dcdcdc;
+            }
+        }
+    }
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(359deg);
+    }
+}

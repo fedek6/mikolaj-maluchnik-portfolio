@@ -1,0 +1,10 @@
+<!-- @begin: shared scripts -->
+{# All shared scripts that might be combined #}
+
+{% if this.environment == 'dev' %}
+    <script src="{{ 'assets/js/common.js'|theme }}"></script>
+{% else %}
+    <script src="{{ 'assets/js/common.min.js'|revision|theme }}"></script>
+{% endif %}
+<!-- @end: shared scripts-->
+{% scripts %}
