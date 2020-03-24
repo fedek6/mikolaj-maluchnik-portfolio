@@ -1,3 +1,233 @@
 // -----------------------------------------------------------------------------
 // This file contains all styles related to the header of the site/application.
 // -----------------------------------------------------------------------------
+
+.main-header {
+    display: grid;
+    gap: 0 $grid-row-gap-desktop;
+    grid-template-columns: 100px 1fr;
+    margin-bottom: $grid-row-gap-small;
+
+    // Logo on the left.
+    &__logo {
+        grid-column: 1 / span 1;
+
+        width: auto;
+        display: block;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+        a {
+            display: block;
+            outline: none;
+            transition: opacity .5s cubic-bezier(0.39, 0.575, 0.565, 1);
+
+            &:hover {
+                opacity: .3;
+            }
+        }
+    }
+
+    // Menu on the right.
+    &__menu {
+        grid-column: 2 / span 1;
+        text-align: right;
+
+        // Global hamburger look.
+        .hamburger {
+            padding: 10px 0;
+            outline: none;
+
+            .hamburger-box {
+                pointer-events: none;
+            }
+        }
+    }
+
+    // Menu look
+    // Mobile menu look.
+    &__menu-container {
+        background-color: black;
+        color: White;
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        text-align: center;
+        box-sizing: border-box;
+        padding: 20vh $grid-row-gap-small $grid-row-gap-small $grid-row-gap-small;
+
+        // transition: all .35s ease-out;
+
+        transition-property: transform, filter;
+        transition-duration: .4s;
+        transition-timing-function: ease-out, linear;
+
+
+        // This is closing button.
+        .hamburger.is-active {
+            position: absolute;
+            right: $grid-column-gap-small * 2;
+            top: $grid-column-gap-small * 2;
+
+            .hamburger-inner {
+                background-color: white;
+
+                &::before,
+                &::after {
+                    background-color: white;
+                }
+            }
+        }
+
+        // Items look.
+        ul {
+            padding: 0 0;
+            margin: 0 0;
+            list-style: none;
+            width: 100%;
+
+            li {
+                font-weight: bold;
+
+                &::after {
+                    content: '';
+                    background-color: White;
+                    height: 2px;
+                    width: 30%;
+                    display: inline-block;
+                    line-height: 0;
+                    position: absolute;
+                    left: 35%;
+                }
+
+                a { 
+                    color: White;
+                    display: block;
+                    font-size: 1.125rem;
+                    height: 64px;
+                    line-height: 64px;
+
+                    @include on-event {
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+
+    // State visible.
+    &__menu-container[aria-hidden="false"] {
+        transform: translate3d(0, 0, 0);
+    }
+
+    &__menu-container[aria-hidden="true"] {
+        // left: 107vw;
+        transform: translate3d(110vw, 0, 0);
+        filter: blur(10px);
+    }
+
+    // -----------------------------------------------------------------------------
+    // Media queries.
+    // -----------------------------------------------------------------------------
+    @include respond-to('medium') {
+        gap: 0 $grid-column-gap-desktop;
+        margin-bottom: $grid-row-gap-desktop;
+
+        &__menu {
+            // Hide hamburgers.
+            .hamburger {
+                display: none;
+            } 
+        }
+
+        // Reset menu container.
+        // Set to desktop look.
+        &__menu-container {
+            background-color: transparent;
+            color: $text-color;
+            width: auto;
+            height: auto;
+            position: static;
+            text-align: right;
+            padding: 0 0;
+            transform: none;
+
+            // Items look.
+            ul {
+                font-size: 0;
+                padding-top: (44px - 34px);
+                
+                li:not(:last-of-type) {
+                    margin-right: $grid-column-gap-small *2;
+                }
+
+                li {
+                    font-weight: bold;
+                    display: inline-block;
+
+                    &::after {
+                        display: none;
+                    }
+
+                    a { 
+                        color: $text-color;
+                        display: block;
+                        font-size: .813rem;
+                        height: 34px;
+                        line-height: 34px;
+                        padding: 0 $grid-column-gap-small * 2;
+                        min-width: 100px;
+                        position: relative;
+                        text-align: right;
+
+                        &::after {
+                            content: "";
+                            background-color: $text-color;
+                            height: 3px;
+                            width: 0;
+                            position: absolute;
+                            left: 0px;
+                            transition: width .5s ease-out;
+                        }
+
+                        @include on-event {
+                            text-decoration: none;
+
+                            &::after {
+                                width: calc(100% - 20px);
+                            }
+                        }
+                    }
+
+                    // Important menu item.
+                    &.menu-item--iportant {
+                        a {
+                            border: solid 1px Black;
+                            text-align: center;
+                            transition: all .5s ease-out;
+
+                            &::after {
+                                display: none;
+                            }
+
+                            @include on-event {
+                                background-color: $text-color;
+                                color: white;
+
+                                &::after {
+                                    display: none;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

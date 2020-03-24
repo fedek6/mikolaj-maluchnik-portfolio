@@ -9,6 +9,12 @@ html {
   box-sizing: border-box;
 }
 
+body {
+  box-sizing: border-box;
+  min-width: 320px;
+  overflow-x: hidden;
+}
+
 /**
  * Make all elements from the DOM inherit from the parent box-sizing
  * Since `*` has a specificity of 0, it does not override the `html` value
@@ -31,5 +37,15 @@ a {
   @include on-event {
     color: $text-color;
     text-decoration: underline;
+  }
+}
+
+/**
+ * Set font to all Hs
+ */
+ @for $i from 1 through 6 {
+  h#{$i} {
+    font-family: $header-font-stack;
+    font-weight: 700;
   }
 }

@@ -1,7 +1,32 @@
+[viewBag]
+==
 <!-- @begin: header -->
 <header class="main-header">
-    <a class="main-header__logo" href="{{ url('/') }}">
-        <img src="{{ 'assets/images/logo.svg'|theme }}" alt="Mikołaj Maluchnik" >
-    </a>
+    <div class="main-header__logo">
+
+        <a href="{{ url('/') }}">
+            <img src="{{ 'assets/images/logo.svg'|theme }}" alt="Mikołaj Maluchnik" >
+        </a>
+
+    </div>
+
+    <div class="main-header__menu">
+
+        <button class="hamburger js-show-menu" type="button" aria-label="show menu" aria-controls="main-menu">
+            <span class="hamburger-box">
+              <span class="hamburger-inner"></span>
+            </span>
+        </button>  
+
+        <nav id="main-menu" class="main-header__menu-container" aria-hidden="false">
+            <button class="hamburger hamburger--elastic js-close-menu is-active" type="button" aria-label="close menu" aria-controls="main-menu">
+                <span class="hamburger-box">
+                  <span class="hamburger-inner"></span>
+                </span>
+            </button>  
+            {% component 'staticMenuMultilingual' %}
+        </nav>
+        
+    </div>
 </header>
 <!-- @end: header -->

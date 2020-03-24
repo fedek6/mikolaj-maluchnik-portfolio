@@ -18,6 +18,8 @@ Formula:
 ## How to comment SCSS
 https://sass-lang.com/documentation/syntax/comments
 
+http://sassdoc.com/annotations/
+
 ## CSS3 generators
 Universal:
 https://www.agenciesranked.com/createcss3/

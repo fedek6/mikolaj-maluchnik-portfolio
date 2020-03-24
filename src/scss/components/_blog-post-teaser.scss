@@ -1,0 +1,75 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the blog post teaser / short version.
+// -----------------------------------------------------------------------------
+.blog-post-teaser {
+    &__header {
+        h1 {
+            margin: 0 0;
+            padding: 0 0;
+            line-height: 100%;
+            font-size: 1.125em;
+        }
+    }
+
+    &__content {
+        picture {
+            img {
+                width: 100%;
+                max-width: 100%;
+                height: auto;
+            }
+        }
+    }
+
+    // -----------------------------------------------------------------------------
+    // Media queries.
+    // -----------------------------------------------------------------------------
+    @include respond-to('medium') { 
+        display: grid;
+        gap: 0 $grid-column-gap-desktop;
+        grid-template-columns: 30vw 1fr;
+        margin-bottom: $grid-row-gap-desktop;
+        cursor: pointer;
+
+        &__header {
+            grid-column: 1 / span 1;
+
+            // Centerify.
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: flex-end;
+            align-content: stretch;
+            align-items: center;
+
+            h1 {
+                margin: 0 0;
+                padding: 0 0;
+                font-size: 1.25em;
+                text-align: right;
+                width: 100%;
+
+                &::after {
+                    content: "";
+                    height: 1px;
+                    width: 30%;
+                    display: inline-block;
+                    vertical-align: middle;
+                    background-color: black;
+                    margin-left: $grid-row-gap-desktop / 2;
+                }
+            }
+        }
+
+        &__content {
+            grid-column: 2 / span 1;
+        }
+
+        // -----------------------------------------------------------------------------
+        // Media queries.
+        // -----------------------------------------------------------------------------
+        &:hover {
+            opacity: .5;
+        }
+    }
+}

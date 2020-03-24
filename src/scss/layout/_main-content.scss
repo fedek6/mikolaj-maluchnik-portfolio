@@ -1,6 +1,20 @@
 /// Main container settings
 .main-content {
     max-width: 100%;
-    min-height: 100vw;
+    min-height: 100vh;
     padding: 20px;
+
+    transition: filter .6s ease-out;
+}
+
+body[aria-busy="true"] {
+    .main-content {
+        filter: blur(4px);
+    }
+}
+
+body[aria-busy="false"] {
+    .main-content {
+        filter: blur(0);
+    }
 }

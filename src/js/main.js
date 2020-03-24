@@ -8,6 +8,10 @@
  * @link https://jsdoc.app/tags-param.html#examples
  */
 import { hidePreloader, showPreloader } from './components/preloader'
+import Menu from './components/menu'
+import MediaWatcher from './components/mediawatcher'
+
+
 
 // Little hello world to test compilers/transpilers 
 
@@ -26,4 +30,24 @@ window.onload = function() {
         hidePreloader()
     }, 1000)
     
-};
+    /** @var {object} menu */
+    let menu;
+
+    /**
+     * Menu support.
+     * Init on mobile, show in case of desktop media query.
+     */
+    MediaWatcher.addDynamicListener(item => { 
+        if(item === 'xs' || item === 'sm') {
+            if(typeof menu === 'undefined') {
+                menu = new Menu
+                menu.hide()
+                menu.init()
+            }
+        } else {
+            if(typeof menu !== 'undefined') { 
+                menu.show()
+            }
+        }
+    })
+}

@@ -10,7 +10,7 @@ module.exports = function (grunt) {
     eslint: 'grunt-eslint',
     browserify: 'grunt-browserify',
     sass: 'grunt-contrib-sass',
-    autoprefixer: 'grunt-autoprefixer',
+    postcss: 'grunt-postcss',
     cssmin: 'grunt-contrib-cssmin',
     imagemin: 'grunt-contrib-imagemin',
     assets_versioning: 'grunt-assets-versioning'
@@ -95,7 +95,7 @@ module.exports = function (grunt) {
     // sass
     sass: {
       options: {
-        sourcemap: 'inline'
+        sourcemap: 'auto'
       },
       dist: {
         files: {
@@ -107,15 +107,16 @@ module.exports = function (grunt) {
       }
     },
     // autoprefixer
-    autoprefixer: {
+    postcss: {
       options: {
-        map: false
+        map: true, // inline sourcemaps
+        processors: [
+          require('autoprefixer')({overrideBrowserslist: 'last 2 versions'}), // add vendor prefixes
+        ],
       },
       dist: {
-        files: {
-          './assets/css/main.css': './assets/css/main.css',
-          './assets/css/preloader.css': './src/scss/preloader.css'
-        }
+        src: './assets/css/main.css',
+        dest: './assets/css/main.css'
       }
     },
     // cssmin
@@ -197,11 +198,11 @@ module.exports = function (grunt) {
   // build production
   grunt.registerTask('buildProd', [
     'init',
-    'autoprefixer',
+    'postcss',
     'cssmin',
     'browserify:production',
     'imagemin',
-    'assets_versioning'
+    //'assets_versioning'
   ])
 
   // build default

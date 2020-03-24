@@ -2,5 +2,47 @@ title = "Start"
 url = "/"
 layout = "main"
 is_hidden = 0
+
+[builderList]
+modelClass = "RealheRo\Content\Models\Blog"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "title"
+noRecordsMessage = "No records found"
+detailsPage = "-"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
+sortColumn = "sort_order"
 ==
-test
+{% set records = builderList.records %}
+{% set displayColumn = builderList.displayColumn %}
+{% set noRecordsMessage = builderList.noRecordsMessage %}
+{% set detailsPage = builderList.detailsPage %}
+{% set detailsKeyColumn = builderList.detailsKeyColumn %}
+{% set detailsUrlParameter = builderList.detailsUrlParameter %}
+
+<main>
+    {% for record in records %}
+        <article class="blog-post-teaser js-load-content" data-load-url="{{ record.url }}">
+            <header class="blog-post-teaser__header">
+                {% if record.url %}
+                    <a href="{{ record.url }}">
+                        <h1>{{ record.title }}</h1>
+                    </a>
+                {% else %}
+                    <h1>{{ record.title }}</h1>
+                {% endif %}
+            </header>
+
+            <div class="blog-post-teaser__content">
+                <picture>
+                    <source media="(max-width: 799px)" srcset="{{ record.cover|media|resize(850) }}">
+                    <source media="(min-width: 800px)" srcset="{{ record.cover|media|resize(2200) }}">
+                    <img src="{{ record.cover|media|resize(2200) }}">
+                </picture>
+            </div>
+        </article>
+    {% else %}
+        <h1>{{ noRecordsMessage }}</h1>
+    {% endfor %}
+</main>

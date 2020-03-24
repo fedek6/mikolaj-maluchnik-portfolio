@@ -25,6 +25,7 @@
 
 // 5. Components
 @import
+  'components/blog-post-teaser',
   'components/button';
 
 // 6. Page-specific styles
@@ -34,3 +35,9 @@
 // 7. Themes
 @import
   'themes/default';
+
+// 8. Vendor
+$hamburger-types: (
+  elastic
+);
+@import "../../node_modules/hamburgers/_sass/hamburgers/hamburgers.scss";

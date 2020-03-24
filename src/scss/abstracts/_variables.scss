@@ -59,6 +59,35 @@ $breakpoints: (
 ) !default;
 
 
+/// Rhytm base
+/// @type Length
+$rhytm-base: 8px !default;
+
+///
+/// Row
+///
+
+/// Grid gap small
+/// @type Length
+$grid-row-gap-small: 32px !default;
+
+
+/// Grid gap desktop
+/// @type Length
+$grid-row-gap-desktop: 32px !default;
+
+///
+/// Column
+///
+
+/// Grid gap small
+/// @type Length
+$grid-column-gap-small: 16px !default;
+
+
+/// Grid gap desktop
+/// @type Length
+$grid-column-gap-desktop: 32px !default;
 
 
 
