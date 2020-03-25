@@ -3,8 +3,10 @@
 
 {% if this.environment == 'dev' %}
     <script src="{{ 'assets/js/common.js'|theme }}"></script>
+    <script src="{{ 'assets/js/main.js'|theme }}"></script>
 {% else %}
     <script src="{{ 'assets/js/common.min.js'|revision|theme }}"></script>
+    <script src="{{ 'assets/js/main.min.js'|theme }}"></script>
 {% endif %}
 <!-- @end: shared scripts-->
 {% scripts %}

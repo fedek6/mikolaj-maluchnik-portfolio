@@ -72,8 +72,8 @@
         // This is closing button.
         .hamburger.is-active {
             position: absolute;
-            right: $grid-column-gap-small * 2;
-            top: $grid-column-gap-small * 2;
+            right: 20px;
+            top: 20px;
 
             .hamburger-inner {
                 background-color: white;

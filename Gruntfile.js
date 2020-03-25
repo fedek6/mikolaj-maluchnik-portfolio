@@ -41,6 +41,7 @@ module.exports = function (grunt) {
       development: {
         src: [
           './src/js/main.js',
+          './src/js/blog.js',
           //'./src/js/carousel-page.js',
           //'./src/js/side-selector.js'
         ],
@@ -55,11 +56,20 @@ module.exports = function (grunt) {
               'presets': ['env']
             }]
           ],
+          plugin: [
+            ['factor-bundle', {
+              outputs: [
+                './assets/js/main.js',
+                './assets/js/blog.js'
+              ]
+            }]
+          ]
         }
       },
       production: {
         src: [
           './src/js/main.js',
+          './src/js/blog.js',
         ],
         dest: './assets/js/common.min.js',
         options: {
@@ -75,6 +85,12 @@ module.exports = function (grunt) {
           plugin: [
             ['minifyify', {
               map: false
+            }],
+            ['factor-bundle', {
+              outputs: [
+                './assets/js/main.min.js',
+                './assets/js/blog.min.js'
+              ]
             }]
           ]
         }

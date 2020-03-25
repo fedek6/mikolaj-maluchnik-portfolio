@@ -19,9 +19,9 @@ let greetingMessage = "%cHello there! Want to hire me?\n Go to http://realhe.ro 
 console.log(greetingMessage, 'background: #000; color: Yellow; font-size: 1.25em')
 
 /**
- * Windo onload
+ * Window onload.
  */
-window.onload = function() {
+window.addEventListener('load', (event) => {
 
     // Hide preloader
     setTimeout( () => {
@@ -48,4 +48,4 @@ window.onload = function() {
             }
         }
     })
-}
+});

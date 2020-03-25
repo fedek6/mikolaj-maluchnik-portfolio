@@ -95,13 +95,14 @@
             background-repeat: no-repeat;
 
             picture {
-                transition: opacity .5s ease-in-out;
+                transition: all .5s ease-in-out;
             }
 
             .hover,
             &:hover {
                 picture {
-                    opacity: 0.45;
+                    opacity: 0.25;
+                    filter: grayscale(100%);
                 }
             }
         }
