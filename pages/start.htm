@@ -20,13 +20,25 @@ sortColumn = "sort_order"
 {% set detailsPage = builderList.detailsPage %}
 {% set detailsKeyColumn = builderList.detailsKeyColumn %}
 {% set detailsUrlParameter = builderList.detailsUrlParameter %}
+{% set containerClass = 'blog-post-teaser' %}
+
 
 <main>
     {% for record in records %}
-        <article class="blog-post-teaser js-load-content" data-load-url="{{ record.url }}">
+
+        {# Do we have an url for this post? #}
+        {% if record.url %}
+            {% set hasUrl = true %}
+            {% set currentClasses = containerClass ~ ' ' ~ containerClass ~ '--has-url' %}
+        {% else %}
+            {% set hasUrl = false %}
+            {% set currentClasses = containerClass %}
+        {% endif %}
+        
+        <article class="{{ currentClasses }}">
             <header class="blog-post-teaser__header">
-                {% if record.url %}
-                    <a href="{{ record.url }}">
+                {% if hasUrl %}
+                    <a href="{{ record.url }}" class="js-content-loader">
                         <h1>{{ record.title }}</h1>
                     </a>
                 {% else %}
@@ -35,11 +47,17 @@ sortColumn = "sort_order"
             </header>
 
             <div class="blog-post-teaser__content">
-                <picture>
-                    <source media="(max-width: 799px)" srcset="{{ record.cover|media|resize(850) }}">
-                    <source media="(min-width: 800px)" srcset="{{ record.cover|media|resize(2200) }}">
-                    <img src="{{ record.cover|media|resize(2200) }}">
-                </picture>
+                {% if hasUrl %}
+                    <a href="{{ record.url }}" class="js-content-loader">
+                {% endif %}
+                        <picture>
+                            <source media="(max-width: 799px)" srcset="{{ record.cover|media|resize(850) }}">
+                            <source media="(min-width: 800px)" srcset="{{ record.cover|media|resize(2200) }}">
+                            <img src="{{ record.cover|media|resize(2200) }}">
+                        </picture>
+                {% if hasUrl %}
+                    </a>
+                {% endif %}
             </div>
         </article>
     {% else %}

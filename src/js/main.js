@@ -11,8 +11,6 @@ import { hidePreloader, showPreloader } from './components/preloader'
 import Menu from './components/menu'
 import MediaWatcher from './components/mediawatcher'
 
-
-
 // Little hello world to test compilers/transpilers 
 
 /** @var {string} greetingMessage */
