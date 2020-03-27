@@ -2,8 +2,14 @@
 // This file contains all styles related to the blog post teaser / short version.
 // -----------------------------------------------------------------------------
 .blog-post-teaser {
+    * {
+        pointer-events: none;
+    }
+
     &__header {
         a {
+            pointer-events: all;
+
             // No text effects on hover.
             @include on-event {
                 text-decoration: none;
@@ -50,8 +56,9 @@
             align-items: center;
 
             a {
-                display: block;
-                width: 100%;
+                display: inline-block;
+                /* width: 100%;
+                text-align: right; */
             }
 
             h1 {
@@ -59,16 +66,18 @@
                 padding: 0 0;
                 font-size: 1.25em;
                 text-align: right;
-                width: 100%;
+                display: inline-block;
+                line-height: 200%;
+                // width: 100%;
 
                 &::after {
                     content: "";
                     height: 1px;
-                    width: 30%;
-                    display: inline-block;
-                    vertical-align: middle;
+                    width: 100%;
+                    display: block;
+                    // vertical-align: middle;
                     background-color: black;
-                    margin-left: $grid-row-gap-desktop / 2;
+                    // margin-left: $grid-row-gap-desktop / 2;
                 }
             }
         }
@@ -89,19 +98,22 @@
     // -----------------------------------------------------------------------------
     @include respond-to('medium') { 
         .blog-post-teaser__content {
+            pointer-events: all;
+
             background-image: url('../images/arrow_square.svg');
             background-position: center center;
             background-size: 80px 80px;
             background-repeat: no-repeat;
+            cursor: pointer;
 
             picture {
                 transition: all .5s ease-in-out;
             }
 
-            .hover,
+            &.hover,
             &:hover {
                 picture {
-                    opacity: 0.25;
+                    opacity: 0.15;
                     filter: grayscale(100%);
                 }
             }
