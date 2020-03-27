@@ -56,6 +56,9 @@ function onStart()
             {% set hasUrl = false %}
             {% set currentClasses = containerClass %}
         {% endif %}
+
+        {# Comment out to disable Zebra effect on posts #}
+        {% set containerClass = containerClass ~ ' blog-post-teaser--zebra' %}
         
         <article class="{{ currentClasses }}">
             <header class="blog-post-teaser__header">

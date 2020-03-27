@@ -41,11 +41,12 @@
         display: grid;
         gap: 0 $grid-column-gap-desktop;
         grid-template-columns: 30vw 1fr;
-        margin-bottom: $grid-row-gap-desktop;
+        margin-bottom: $grid-row-gap-desktop * 3;
         // cursor: pointer;
 
         &__header {
             grid-column: 1 / span 1;
+            grid-row: 1;
 
             // Centerify.
             display: flex;
@@ -84,8 +85,30 @@
 
         &__content {
             grid-column: 2 / span 1;
+            grid-row: 1;
         }
 
+    }
+}
+
+// -----------------------------------------------------------------------------
+// Modifier for zebra CSS.
+// -----------------------------------------------------------------------------
+.blog-post-teaser--zebra:nth-of-type(even) {
+
+    // -----------------------------------------------------------------------------
+    // Media queries.
+    // -----------------------------------------------------------------------------
+    @include respond-to('medium') { 
+        grid-template-columns: 1fr 30vw;
+
+        .blog-post-teaser__header {
+            grid-column: 2 / span 1;
+            justify-content: flex-start;
+        }
+        .blog-post-teaser__content {
+            grid-column: 1 / span 1;
+        }
     }
 }
 
@@ -113,7 +136,7 @@
             &.hover,
             &:hover {
                 picture {
-                    opacity: 0.15;
+                    opacity: 0.5;
                     filter: grayscale(100%);
                 }
             }
