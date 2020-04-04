@@ -63,6 +63,8 @@ $breakpoints: (
 /// @type Length
 $rhytm-base: 8px !default;
 
+
+
 ///
 /// Row
 ///
@@ -89,6 +91,20 @@ $grid-column-gap-small: 16px !default;
 /// @type Length
 $grid-column-gap-desktop: 32px !default;
 
+
+/// Inner padding small.
+/// @type Length
+$inner-padding-small: 20px !default;
+
+
+/// Inner padding desktop.
+/// @type Length
+$inner-padding-desktop: 20px !default;
+
+
+/// Sticky menu height.
+/// @type Length
+$sticky-menu-height-destkop: 88px !default;
 
 
 /// Relative or absolute URL where all assets are served from

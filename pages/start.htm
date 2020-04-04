@@ -58,16 +58,31 @@ function onStart()
         {% endif %}
 
         {# Comment out to disable Zebra effect on posts #}
-        {% set containerClass = containerClass ~ ' blog-post-teaser--zebra' %}
+        {% set currentClasses = currentClasses ~ ' blog-post-teaser--zebra' %}
         
         <article class="{{ currentClasses }}">
             <header class="blog-post-teaser__header">
                 {% if hasUrl %}
                     <a href="{{ record.url }}" class="js-content-loader">
                         <h1>{{ record.title }}</h1>
+
+                        {% if record.text %}
+                        <div>
+                            <div class="blog-post-teaser__text">
+                                {{ record.text|striptags }}
+                            </div>
+                        </div> 
+                        {% endif %}
                     </a>
                 {% else %}
                     <h1>{{ record.title }}</h1>
+                    {% if record.text %}
+                        <div>
+                            <div class="blog-post-teaser__text">
+                                {{ record.text|striptags }}
+                            </div>
+                        </div>
+                    {% endif %}
                 {% endif %}
             </header>
 

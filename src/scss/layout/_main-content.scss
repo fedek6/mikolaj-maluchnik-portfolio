@@ -2,9 +2,16 @@
 .main-content {
     max-width: 100%;
     min-height: 100vh;
-    padding: 20px;
-
+    padding: $inner-padding-small;
     transition: filter .6s ease-out;
+    
+    // -----------------------------------------------------------------------------
+    // Media queries.
+    // -----------------------------------------------------------------------------
+    @include respond-to('medium') { 
+       //  padding: 0 $inner-padding-desktop;
+       padding: 0 0;
+    }
 }
 
 body[aria-busy="true"] {

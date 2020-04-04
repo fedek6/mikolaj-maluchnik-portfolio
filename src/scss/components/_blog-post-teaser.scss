@@ -38,26 +38,44 @@
     // Media queries.
     // -----------------------------------------------------------------------------
     @include respond-to('medium') { 
-        display: grid;
+        /* display: grid;
         gap: 0 $grid-column-gap-desktop;
-        grid-template-columns: 30vw 1fr;
-        margin-bottom: $grid-row-gap-desktop * 3;
+        grid-template-columns: 30vw 1fr; */
+        //margin-bottom: $grid-row-gap-desktop * 2;
         // cursor: pointer;
 
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-content: flex-start;
+        align-items: center;
+        // height: 100vh;
+
         &__header {
-            grid-column: 1 / span 1;
-            grid-row: 1;
+            /* grid-column: 1 / span 1;
+            grid-row: 1; */
 
             // Centerify.
-            display: flex;
+            /* display: flex;
             flex-direction: row;
             flex-wrap: nowrap;
             justify-content: flex-end;
             align-content: stretch;
-            align-items: center;
+            align-items: center;*/
+
+            order: 0;
+            flex: 1 1 auto;
+            align-self: auto;
+
+            text-align: right;
+
+            padding-right: $grid-column-gap-desktop;
+            padding-left: $grid-column-gap-desktop;
 
             a {
-                display: inline-block;
+                display: block;
+                overflow: auto;
                 /* width: 100%;
                 text-align: right; */
             }
@@ -66,12 +84,13 @@
                 margin: 0 0;
                 padding: 0 0;
                 font-size: 1.25em;
-                text-align: right;
+                // text-align: right;
                 display: inline-block;
                 line-height: 200%;
+                border-bottom: 1px solid Black;
                 // width: 100%;
 
-                &::after {
+                /* &::after {
                     content: "";
                     height: 1px;
                     width: 100%;
@@ -79,17 +98,67 @@
                     // vertical-align: middle;
                     background-color: black;
                     // margin-left: $grid-row-gap-desktop / 2;
-                }
+                } */
             }
         }
 
+        &__text {
+            display: inline-block;
+            //max-width: 400px;
+            //float: right;
+            text-align: justify;
+            margin-top: 8px;
+            width: 400px;
+            max-width: 80%;
+        }
+
+        // Picture content/
         &__content {
-            grid-column: 2 / span 1;
-            grid-row: 1;
+            order: 0;
+            flex: 0 1 auto;
+            align-self: auto;
+            flex-shrink: 0;
+
+            picture {
+                display: block;
+
+                img {
+                    width: auto;
+                    height: calc(100vh - #{$sticky-menu-height-destkop});
+                }
+            }
+
+            a {
+                display: block;
+                line-height: 0;
+                font-size: 0;
+            }
         }
 
     }
 }
+
+// -----------------------------------------------------------------------------
+// First blog post mods.
+// -----------------------------------------------------------------------------
+/* .blog-post-teaser:first-of-type {
+    // -----------------------------------------------------------------------------
+    // Media queries.
+    // -----------------------------------------------------------------------------
+    @include respond-to('medium') { 
+        // border: solid 1px Black;
+        //height: calc(100vh - 40px - 80px);
+        // margin-bottom: $inner-padding-desktop * 2;
+    
+        .blog-post-teaser__content {
+            picture img {
+                width: auto;
+                height: calc(100vh - #{$sticky-menu-height-destkop});
+            }
+        }
+    }
+} */
+
 
 // -----------------------------------------------------------------------------
 // Modifier for zebra CSS.
@@ -99,15 +168,14 @@
     // -----------------------------------------------------------------------------
     // Media queries.
     // -----------------------------------------------------------------------------
-    @include respond-to('medium') { 
-        grid-template-columns: 1fr 30vw;
-
+    @include respond-to('medium') {
         .blog-post-teaser__header {
-            grid-column: 2 / span 1;
-            justify-content: flex-start;
+            order: 1;
+            text-align: left;
         }
+
         .blog-post-teaser__content {
-            grid-column: 1 / span 1;
+            order: 0;
         }
     }
 }

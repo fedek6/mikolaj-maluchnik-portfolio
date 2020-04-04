@@ -5,8 +5,18 @@
 .main-header {
     display: grid;
     gap: 0 $grid-row-gap-desktop;
-    grid-template-columns: 100px 1fr;
-    margin-bottom: $grid-row-gap-small;
+    grid-template-columns: 120px 1fr;
+
+    padding: $inner-padding-small;
+
+
+    position: sticky;
+    top: 0px;
+    left: 0px;
+
+    width: 100%;
+    background-color: rgba(255,255,255,0.7);
+    z-index: 99;
 
     // Logo on the left.
     &__logo {
@@ -14,10 +24,12 @@
 
         width: auto;
         display: block;
+        line-height: 0;
+        font-size: 0;
 
         img {
-            width: 100%;
-            height: auto;
+            width: auto;
+            height: 40px;
         }
 
         a {
@@ -137,7 +149,14 @@
     // -----------------------------------------------------------------------------
     @include respond-to('medium') {
         gap: 0 $grid-column-gap-desktop;
-        margin-bottom: $grid-row-gap-desktop;
+
+        // Logo on the left.
+        &__logo { 
+            img {
+                width: auto;
+                height: 48px;
+            }
+        }
 
         &__menu {
             // Hide hamburgers.
