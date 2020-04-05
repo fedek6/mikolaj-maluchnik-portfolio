@@ -7,16 +7,22 @@
  * Please conform to JSDoc:
  * @link https://jsdoc.app/tags-param.html#examples
  */
-
+import LazyLoad from "vanilla-lazyload";
 
 // Little hello world to test compilers/transpilers 
 console.log('Running blog module.')
 
+
 document.addEventListener('mouseover', (event) => {
 
 	if (event.target.classList.contains('js-content-loader')) {
-        let contentElement = event.target.parentNode.nextElementSibling
-        contentElement.classList.add('hover')
+
+		let collection = event.target.parentNode.parentNode.getElementsByClassName('js-content-loader')
+
+		for (let element of collection) {
+			element.classList.add('hover');
+		}
+
 	}
 }, false);
 
@@ -24,7 +30,25 @@ document.addEventListener('mouseover', (event) => {
 document.addEventListener('mouseout', (event) => {
 
 	if (event.target.classList.contains('js-content-loader')) {
-        let contentElement = event.target.parentNode.nextElementSibling
-        contentElement.classList.remove('hover')
+
+		let collection = event.target.parentNode.parentNode.getElementsByClassName('js-content-loader')
+
+		for (let element of collection) {
+			element.classList.remove('hover');
+		}
+
 	}
 }, false);
+
+/**
+ * Lazy load images.
+ * 
+ * @link https://github.com/verlok/lazyload
+ */
+let lazyLoadInstance = new LazyLoad({
+	elements_selector: ".lazy",
+	threshold: 88,
+	callback_loaded: (element) => {
+		element.parentNode.parentNode.classList.add('loaded')
+	}
+});

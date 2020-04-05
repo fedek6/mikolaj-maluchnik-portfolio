@@ -27,6 +27,12 @@ $text-color: rgb(0, 0, 0) !default;
 /// @type Color
 $brand-color: rgb(0, 0, 0) !default;
 
+/// Copy text color
+/// @type Color
+$link-hover-color: lighten($text-color, 20%) !default;
+
+
+
 
 /// Active UX elements
 /// @type Color
