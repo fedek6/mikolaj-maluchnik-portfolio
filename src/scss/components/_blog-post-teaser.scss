@@ -12,7 +12,7 @@
 
     // Add margin to root 
     & {
-        margin-bottom: $rhytm-base * 6;
+        margin-bottom: $rhytm-base * 7;
     }
     
     * {
@@ -62,7 +62,8 @@
             font-size: 1.25em;
             line-height: 200%;
             border-bottom: 1px solid Black;
-            text-align: center;
+            text-align: left;
+            display: inline-block;
         }
     }
 
