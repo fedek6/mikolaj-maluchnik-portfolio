@@ -63,7 +63,7 @@ function onStart()
         <article class="{{ currentClasses }}">
             <header class="blog-post-teaser__header">
                 {% if hasUrl %}
-                    <a href="{{ record.url }}" class="js-content-loader">
+                    <a href="{{ record.url }}" class="js-content-loader" data-more-text="{{ 'Read more'|_ }}">
                         <h1>{{ record.title }}</h1>
 
                         {% if record.text %}

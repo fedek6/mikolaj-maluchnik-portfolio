@@ -2,7 +2,7 @@
 .main-content {
     max-width: 100%;
     min-height: 100vh;
-    padding: $inner-padding-small;
+    // padding: $inner-padding-small;
     transition: filter .6s ease-out;
     
     // -----------------------------------------------------------------------------
@@ -14,12 +14,14 @@
     }
 }
 
+/// During loading...
 body[aria-busy="true"] {
     .main-content {
         filter: blur(4px);
     }
 }
 
+/// On load
 body[aria-busy="false"] {
     .main-content {
         filter: blur(0);

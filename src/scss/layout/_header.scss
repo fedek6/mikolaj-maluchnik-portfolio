@@ -7,7 +7,7 @@
     gap: 0 $grid-row-gap-desktop;
     grid-template-columns: 120px 1fr;
 
-    padding: $inner-padding-small;
+    padding: $inner-padding-small/2 $inner-padding-small;
 
 
     position: sticky;
@@ -50,7 +50,7 @@
 
         // Global hamburger look.
         .hamburger {
-            padding: 10px 0;
+            padding: 10px 0 0 0;
             outline: none;
 
             .hamburger-box {
@@ -149,6 +149,7 @@
     // -----------------------------------------------------------------------------
     @include respond-to('medium') {
         gap: 0 $grid-column-gap-desktop;
+        padding: $inner-padding-small $inner-padding-small;
 
         // Logo on the left.
         &__logo { 

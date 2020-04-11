@@ -2,13 +2,38 @@
 // This file contains all styles related to the blog post teaser / short version.
 // -----------------------------------------------------------------------------
 .blog-post-teaser {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center; 
+    justify-content: flex-start; 
+    
+    flex-direction: column;
+    align-content: stretch;
+
+    // Add margin to root 
+    & {
+        margin-bottom: $rhytm-base * 6;
+    }
+    
     * {
         pointer-events: none;
     }
 
+    /// Header
     &__header {
+        order: 1;
+        flex: 0 1 auto;
+        align-self: auto;
+
+        width: 100%;
+
+        padding: $rhytm-base $inner-padding-small 0 $inner-padding-small;
+
+        /// Link to content
         a {
             pointer-events: all;
+            outline: none;
+            text-align: center;
 
             // No text effects on hover.
             @include on-event {
@@ -16,15 +41,53 @@
             }
         }
 
+        /// Read more text after tex
+        a::after {
+            content: attr(data-more-text);
+            display: block;
+            width: 100%;
+            text-align: center;
+            font-weight: 700;
+            border: solid 1px Black;
+            line-height: $rhytm-base * 4;
+            font-size: 0.75em;
+            width: 33%;
+            min-width: 150px;
+            margin: $rhytm-base * 2  auto 0 auto;
+        }
+
         h1 {
-            margin: 0 0;
+            margin: 0 0 $rhytm-base * 2 0;
             padding: 0 0;
-            line-height: 100%;
-            font-size: 1.125em;
+            font-size: 1.25em;
+            line-height: 200%;
+            border-bottom: 1px solid Black;
+            text-align: center;
         }
     }
 
+    /// Text
+    &__text {
+        margin: 0 0 $rhytm-base 0;
+        text-align: justify;
+        font-weight: 300;
+        font-size: .875em;
+        hyphens: auto;
+    }    
+
+    /// Content
     &__content {
+        order: 0;
+        flex: 0 1 auto;
+        align-self: auto;
+        line-height: 0;
+
+        a {
+            outline: none;
+            display: block;
+            line-height: 0;
+        }
+        
         img {
             width: 100%;
             max-width: 100%;
@@ -36,6 +99,7 @@
     // Media queries.
     // -----------------------------------------------------------------------------
     @include respond-to('medium') { 
+        margin: 0 0;
         /* display: grid;
         gap: 0 $grid-column-gap-desktop;
         grid-template-columns: 30vw 1fr; */
@@ -43,27 +107,35 @@
         // cursor: pointer;
 
         display: flex;
-        flex-direction: row;
         flex-wrap: nowrap;
-        justify-content: space-between;
-        align-content: flex-start;
         align-items: center;
+        align-content: flex-start;
+
+        flex-direction: row;
+        justify-content: space-between;
+        
 
         &__header {
             order: 0;
             flex: 1 1 auto;
             align-self: auto;
 
-            text-align: right;
+            width: auto;
 
-            padding-right: $grid-column-gap-desktop;
-            padding-left: $grid-column-gap-desktop;
+            text-align: right;
+            padding: 0 $grid-column-gap-desktop;
 
             a {
                 display: block;
                 overflow: auto;
+                text-align: right;
                 /* width: 100%;
                 text-align: right; */
+            }
+
+            /// Read more text after text
+            a::after { 
+                display: none;
             }
 
             h1 {
@@ -72,16 +144,19 @@
                 font-size: 1.25em;
                 display: inline-block;
                 line-height: 200%;
-                border-bottom: 1px solid Black;
+                text-align: left;
             }
         }
 
         &__text {
             display: inline-block;
-            text-align: justify;
-            margin-top: 8px;
+            // text-align: justify;
+            margin: $rhytm-base 0 0 0;
             width: 400px;
             max-width: 80%;
+            //font-weight: 300;
+            //font-size: .938em;
+            // hyphens: auto;
         }
 
         // Picture content/
@@ -152,8 +227,12 @@
         .blog-post-teaser__header {
             order: 1;
             text-align: left;
-        }
 
+            a {
+                text-align: left;
+            }
+        }
+        
         .blog-post-teaser__content {
             order: 0;
 
