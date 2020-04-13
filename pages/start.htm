@@ -92,6 +92,7 @@ function onStart()
                 {% endif %}
                         <img 
                             class="lazy" 
+                            alt="{{ record.cover_alt }}"
                             data-src="{{ record.cover|media|resize(850) }}"
                             data-srcset="{{ record.cover|media|resize(850) }} 850w,
                             {{ record.cover|media|resize(1200) }} 1200w,

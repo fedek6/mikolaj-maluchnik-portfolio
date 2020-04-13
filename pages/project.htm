@@ -1,0 +1,47 @@
+title = "Project"
+url = "/project/:id"
+layout = "main"
+is_hidden = 0
+
+[builderDetails]
+modelClass = "RainLab\Builder\Models\Settings"
+identifierValue = "{{ :id }}"
+modelKeyColumn = "id"
+displayColumn = "title"
+notFoundMessage = "Record not found"
+
+[viewBag]
+localeTitle[pl] = "Projekt"
+localeUrl[pl] = "/projekt/:id"
+==
+<?php
+//////////////////////////////////////////////////////////
+function onStart() 
+{
+    /**
+     * Load this page specific JS.
+     */
+    $env = env('APP_ENV', 'production');
+
+    /** @var string $js Path versioned to JS. */
+    $js = 'assets/js/project.js';
+
+    if($env !== 'dev') {
+        $js = \Twig::parse("{{ 'assets/js/project.min.js'|revision }}");
+        $this->addJs($js);
+    }
+
+    $this->addJs( $js );
+}
+//////////////////////////////////////////////////////////
+?>
+==
+{% set record = builderDetails.record %}
+{% set displayColumn = builderDetails.displayColumn %}
+{% set notFoundMessage = builderDetails.notFoundMessage %}
+
+{% if record %}
+    {{ attribute(record, displayColumn) }}
+{% else %}
+    {{ notFoundMessage }}
+{% endif %}

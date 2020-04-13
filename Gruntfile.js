@@ -42,6 +42,7 @@ module.exports = function (grunt) {
         src: [
           './src/js/main.js',
           './src/js/blog.js',
+          './src/js/project.js'
           //'./src/js/carousel-page.js',
           //'./src/js/side-selector.js'
         ],
@@ -60,7 +61,8 @@ module.exports = function (grunt) {
             ['factor-bundle', {
               outputs: [
                 './assets/js/main.js',
-                './assets/js/blog.js'
+                './assets/js/blog.js',
+                './assets/js/project.js'
               ]
             }]
           ]
@@ -70,6 +72,7 @@ module.exports = function (grunt) {
         src: [
           './src/js/main.js',
           './src/js/blog.js',
+          './src/js/project.js'
         ],
         dest: './assets/js/common.min.js',
         options: {
@@ -89,7 +92,8 @@ module.exports = function (grunt) {
             ['factor-bundle', {
               outputs: [
                 './assets/js/main.min.js',
-                './assets/js/blog.min.js'
+                './assets/js/blog.min.js',
+                './assets/js/project.min.js'
               ]
             }]
           ]

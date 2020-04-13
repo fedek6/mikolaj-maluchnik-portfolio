@@ -1,5 +1,5 @@
 /**
- * Common JS File (global functionality).
+ * Blog page functionality.
  * 
  * Please conform to ECMA rules:
  * @link https://devhints.io/es6
