@@ -1,3 +1,94 @@
 // -----------------------------------------------------------------------------
 // This file contains all styles related to the footer of the site/application.
 // -----------------------------------------------------------------------------
+.main-footer {
+    background-color: black;
+    color: #ccc;
+    text-align: center;
+    overflow: hidden;
+    padding: $rhytm-base * 7 $inner-padding-small $inner-padding-small $inner-padding-small;
+    display: block;
+
+    //
+    // Logo
+    //
+    .main-footer__logo {
+        margin-bottom: $rhytm-base * 6;
+        line-height: 0;
+
+        svg {
+            width: auto;
+            height: 40px;
+            
+    
+            path {
+                fill: White;
+            }
+        }
+    }
+
+    //
+    // Text
+    //
+    p:first-of-type {
+        margin-bottom: $rhytm-base / 2;
+    }
+
+    p {
+        font-size: .813em;
+        font-weight: 400;
+        margin: 0 0;
+        line-height: 100%;
+        letter-spacing: 0.02em;
+    }
+
+    //
+    // Links
+    //
+    a {
+        color: #ccc;
+        text-decoration: underline;
+        transition: all .25s ease-out;
+
+        @include on-event {
+            color: darken(#ccc, 30);
+        }
+    }
+    
+    // -----------------------------------------------------------------------------
+    // Media queries.
+    // -----------------------------------------------------------------------------
+    @include respond-to('medium') {
+        padding: $rhytm-base * 6 $inner-padding-small;
+        color: white;
+
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-content: stretch;
+        align-items: center;
+        
+
+        p {
+            font-size: .813em;
+            letter-spacing: 0.025em;
+        }
+
+        .main-footer__logo {
+            order: 0;
+            flex: 1 1 auto;
+            align-self: auto;
+            text-align: left;
+            
+            margin: 0 0 0 0;
+        }
+
+        .main-footer__desc {
+            order: 0;
+            flex: 1 1 auto;
+            align-self: auto;
+            text-align: right;
+        }
+    }
+}

@@ -93,6 +93,16 @@
             width: 100%;
             max-width: 100%;
             height: auto;
+
+            // for animation
+            opacity: 0;
+            transition: opacity 1s ease-out;
+            transition-delay: 1s;
+        }
+
+        // Animation on load
+        img.loaded {
+            opacity: 1;
         }
     }
 
@@ -115,7 +125,7 @@
         flex-direction: row;
         justify-content: space-between;
         
-
+        // Header
         &__header {
             order: 0;
             flex: 1 1 auto;
@@ -149,6 +159,7 @@
             }
         }
 
+        // Text content
         &__text {
             display: inline-block;
             // text-align: justify;
@@ -160,7 +171,7 @@
             // hyphens: auto;
         }
 
-        // Picture content/
+        // Picture content
         &__content {
             order: 0;
             flex: 0 1 auto;
@@ -168,11 +179,13 @@
             flex-shrink: 0;
 
             img {
+                opacity: 1;
                 display: block;
                 width: auto;
+                // offscreen
                 height: calc(100vh - #{$sticky-menu-height-destkop});
                 overflow: hidden;
-                transition:transform s ease-out;
+                transition: transform 1s ease-out;
                 transition-delay: 2s;
                 will-change: transform;
 
@@ -180,6 +193,7 @@
                 transform-origin: right;
             }
 
+            // Animation on load
             img.loaded {
                 transform:translateX(0);
             }
@@ -193,28 +207,6 @@
 
     }
 }
-
-// -----------------------------------------------------------------------------
-// First blog post mods.
-// -----------------------------------------------------------------------------
-/* .blog-post-teaser:first-of-type {
-    // -----------------------------------------------------------------------------
-    // Media queries.
-    // -----------------------------------------------------------------------------
-    @include respond-to('medium') { 
-        // border: solid 1px Black;
-        //height: calc(100vh - 40px - 80px);
-        // margin-bottom: $inner-padding-desktop * 2;
-    
-        .blog-post-teaser__content {
-            picture img {
-                width: auto;
-                height: calc(100vh - #{$sticky-menu-height-destkop});
-            }
-        }
-    }
-} */
-
 
 // -----------------------------------------------------------------------------
 // Modifier for zebra CSS.

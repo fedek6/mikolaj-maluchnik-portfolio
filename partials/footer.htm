@@ -1,0 +1,9 @@
+<footer class="main-footer">
+    <div class="main-footer__logo">
+        {{ source('../assets/images/logo.svg') }}
+    </div>
+    <div class="main-footer__desc">
+        <p>{{ '© :year All Rights Reserved'|_({ year: "now"|date("Y") }) }}</p>
+        <p>{{ 'Code & Gfx: <a href="https://realhe.ro" target="_blank">Realhe.ro</a>'|_ }}</p>
+    </div>
+</footer>
