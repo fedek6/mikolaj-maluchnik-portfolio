@@ -3,7 +3,7 @@
 // -----------------------------------------------------------------------------
 .main-footer {
     background-color: black;
-    color: #ccc;
+    color: White;
     text-align: center;
     overflow: hidden;
     padding: $rhytm-base * 7 $inner-padding-small $inner-padding-small $inner-padding-small;
@@ -31,27 +31,27 @@
     // Text
     //
     p:first-of-type {
-        margin-bottom: $rhytm-base / 2;
+        margin-bottom: $rhytm-base;
     }
 
     p {
         font-size: .813em;
-        font-weight: 400;
+        font-weight: 300;
         margin: 0 0;
         line-height: 100%;
-        letter-spacing: 0.02em;
+        letter-spacing: 0.03em;
     }
 
     //
     // Links
     //
     a {
-        color: #ccc;
-        text-decoration: underline;
+        color: White;
+        text-decoration: none;
         transition: all .25s ease-out;
 
         @include on-event {
-            color: darken(#ccc, 30);
+            color: darken(White, 30);
         }
     }
     
@@ -72,7 +72,7 @@
 
         p {
             font-size: .813em;
-            letter-spacing: 0.025em;
+            letter-spacing: 0.05em;
         }
 
         .main-footer__logo {
