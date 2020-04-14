@@ -1,10 +1,18 @@
 /// Main container settings
 .main-content {
     max-width: 100%;
-    min-height: 100vh;
+    
     // padding: $inner-padding-small;
     transition: filter .6s ease-out;
-    
+
+
+    //
+    // Modifiers
+    //
+    &.main-content--blog-page {
+        min-height: 100vh;
+    }
+
     // -----------------------------------------------------------------------------
     // Media queries.
     // -----------------------------------------------------------------------------
