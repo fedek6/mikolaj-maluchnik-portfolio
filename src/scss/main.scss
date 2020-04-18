@@ -40,4 +40,6 @@
 $hamburger-types: (
   elastic
 );
-@import "../../node_modules/hamburgers/_sass/hamburgers/hamburgers.scss";
+@import 
+  "../../node_modules/hamburgers/_sass/hamburgers/hamburgers.scss",
+  "../../node_modules/flickity/dist/flickity.css";
