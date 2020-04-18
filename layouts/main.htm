@@ -62,7 +62,7 @@ function onStart()
         }}</style>
         {% styles %}
     </head>
-    <body aria-busy="true" lang="{{ selectedLanguage }}">
+    <body aria-busy="true" lang="{{ selectedLanguage }}"{% if viewBag.bodyClasses %} class="{{ viewBag.bodyClasses }}"{% endif %}>
         <!-- @begin: preloader -->
         {% partial 'preloader.htm' %}
         <!-- @end: preloader -->
@@ -70,7 +70,7 @@ function onStart()
         {% partial 'header.htm' %}
 
         <!-- @begin: main content -->
-        <div class="main-content {{ containerClasses }}">
+        <div class="main-content {{ viewBag.containerClasses }}">
             {% page %}
         </div>
         <!-- @end: main content -->

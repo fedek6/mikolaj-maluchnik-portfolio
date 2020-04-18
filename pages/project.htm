@@ -1,18 +1,20 @@
 title = "Project"
-url = "/project/:id"
+url = "/project/:slug"
 layout = "main"
 is_hidden = 0
 
+[viewBag]
+containerClasses = "main-content--project-page"
+bodyClasses = "project-page"
+localeTitle[pl] = "Projekt"
+localeUrl[pl] = "/projekt/:slug"
+
 [builderDetails]
-modelClass = "RainLab\Builder\Models\Settings"
+modelClass = "RealheRo\Content\Models\Project"
 identifierValue = "{{ :slug }}"
 modelKeyColumn = "slug"
 displayColumn = "title"
 notFoundMessage = "Record not found"
-
-[viewBag]
-localeTitle[pl] = "Projekt"
-localeUrl[pl] = "/projekt/:id"
 ==
 <?php
 //////////////////////////////////////////////////////////

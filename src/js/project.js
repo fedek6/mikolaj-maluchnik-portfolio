@@ -7,6 +7,7 @@
  * Please conform to JSDoc:
  * @link https://jsdoc.app/tags-param.html#examples
  */
+import Flickity from 'flickity'
 
 // Little hello world to test compilers/transpilers 
 console.log('Running project module.')

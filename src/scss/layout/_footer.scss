@@ -30,15 +30,24 @@
     //
     // Text
     //
-    p:first-of-type {
-        margin-bottom: $rhytm-base;
+    .main-footer__desc { 
+        a {
+            img {
+                vertical-align: middle;
+                display: inline-block
+            }
+        }
     }
+
+    /*p:first-of-type {
+        margin-bottom: $rhytm-base;
+    }*/
 
     p {
         font-size: .813em;
         font-weight: 300;
         margin: 0 0;
-        line-height: 100%;
+        line-height: 1.25rem;
         letter-spacing: 0.03em;
     }
 
@@ -73,6 +82,7 @@
         p {
             font-size: .813em;
             letter-spacing: 0.05em;
+            // line-height: 1rem;
         }
 
         .main-footer__logo {
