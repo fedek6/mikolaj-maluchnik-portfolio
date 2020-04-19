@@ -1,0 +1,42 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the project description.
+// -----------------------------------------------------------------------------
+.project-description {
+    padding: $rhytm-base $inner-padding-small 0 $inner-padding-small;
+    margin: 0 0 $rhytm-base * 2 0;
+    
+
+    h1 {
+        margin: 0 0 $rhytm-base 0;
+        padding: 0 0;
+        font-size: 1.25em;
+        line-height: 200%;
+        border-bottom: 1px solid Black;
+        text-align: left;
+        display: inline-block;
+    }
+    .project-description__text {
+        margin: 0 0 0 0;
+        text-align: justify;
+        font-weight: 300;
+        font-size: .875em;
+        hyphens: auto;
+
+        p {
+            margin: 0 0;
+        }
+
+        p:not(:last-of-type) {
+            margin-bottom: $rhytm-base;
+        }
+    }
+
+    // -----------------------------------------------------------------------------
+    // Media queries.
+    // -----------------------------------------------------------------------------
+    @include respond-to('medium') { 
+        padding: $grid-row-gap-desktop $grid-column-gap-desktop;
+        margin: 0 0;
+        width: $grid-row-gap-desktop * 15;
+    }
+}

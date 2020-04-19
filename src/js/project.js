@@ -25,13 +25,19 @@ let lazyLoadInstance;
 MediaWatcher.addDynamicListener(item => { 
     // If not mobile.
     if( ['xs', 'sm'].includes(item) === false ) {
-        console.log(item)
         // Start Flickity.
         if(typeof flkty === 'undefined') {
             console.log('INFO: Running Flickity')
             flkty = new Flickity( '.project-carousel', {
                 "lazyLoad": true
-            });
+            }); 
+
+            flkty.on( 'change', (index) => {
+                console.log('INFO: Current slide ' + index)
+            })
+            
+        } else {
+            flkty.resize()
         }
     } else {
         // Destroy Flickity on mobile.

@@ -19,6 +19,14 @@
     @include respond-to('medium') { 
        //  padding: 0 $inner-padding-desktop;
        padding: 0 0;
+
+        //
+        // Modifiers
+        //
+        &.main-content--project-page {
+            height: calc(100vh - #{$sticky-menu-height-destkop});
+            overflow: hidden;
+       }
     }
 }
 

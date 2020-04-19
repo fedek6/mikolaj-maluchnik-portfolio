@@ -1,7 +1,11 @@
 // -----------------------------------------------------------------------------
 // This file contains all styles related to the carousel on a project page.
 // -----------------------------------------------------------------------------
+
 .project-carousel {
+    .carousel-cell {
+        line-height: 0;
+    }
     .project-carousel__image {
         //
         // Modifiers.
@@ -11,19 +15,72 @@
         }
     }
 
+    .flickity-button {
+        display: none;
+    }
+
+    .flickity-page-dots {
+        display: none;
+    }
+
     // -----------------------------------------------------------------------------
     // Media queries.
     // -----------------------------------------------------------------------------
     @include respond-to('medium') { 
+        outline: none;
+
+        .carousel-cell {
+            width: 100%; /* full width */
+            height: calc(100vh - #{$sticky-menu-height-destkop + $carousel-dots-bar-height});
+            background: White;
+            /* center images in cells with flexbox */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
         .project-carousel__image {
             //
             // Modifiers.
             // 
             &.project-carousel__image--desktop {
                 display: block;
+                max-height: 100%;
             }
             &.project-carousel__image--mobile {
                 display: none;
+            }
+        }
+
+        .flickity-page-dots {
+            display: block;
+            height: $carousel-dots-bar-height;
+            line-height: 0;
+            text-align: center;
+            margin: ($carousel-dots-bar-height/2 - $ux-dot-size) 0 0 0;
+
+            .dot {
+                display: inline-block;
+                padding: $rhytm-base $rhytm-base/2;
+                margin-left: $rhytm-base/2;
+                cursor: pointer;
+
+                &::after {
+                    content: '';
+                    border-radius: 50%;
+                    width: $ux-dot-size;
+                    height: $ux-dot-size;
+                    background-color: $non-active-ux;
+                    display: block;
+                    transition: all .25s ease-out;
+                }
+            }
+
+            .got:hover,
+            .dot.is-selected {
+                &::after { 
+                    background-color: $active-ux;
+                }
             }
         }
     }

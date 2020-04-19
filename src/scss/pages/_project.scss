@@ -6,6 +6,15 @@ body.project-page {
     // Media queries.
     // -----------------------------------------------------------------------------
     @include respond-to('medium') {
+        .project-description {
+            position: absolute;
+            right: 0;
+            background: white;
+            z-index: 10;
+            bottom: $carousel-dots-bar-height;
+        }
+
+        // Hide footer.
         .main-footer {
             display: none;
         }

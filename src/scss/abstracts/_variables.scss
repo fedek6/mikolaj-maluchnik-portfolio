@@ -113,6 +113,16 @@ $inner-padding-desktop: 20px !default;
 $sticky-menu-height-destkop: 88px !default;
 
 
+/// Slide indicator.
+/// @type Length
+$carousel-dots-bar-height: 64px !default;
+
+/// Slide indicator size.
+/// @type Length
+$ux-dot-size: $rhytm-base + 2;
+
+
+
 /// Relative or absolute URL where all assets are served from
 /// @type String
 /// @example scss - When using a CDN
