@@ -1,0 +1,30 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the carousel on a project page.
+// -----------------------------------------------------------------------------
+.project-carousel {
+    .project-carousel__image {
+        //
+        // Modifiers.
+        // 
+        &.project-carousel__image--desktop {
+            display: none;
+        }
+    }
+
+    // -----------------------------------------------------------------------------
+    // Media queries.
+    // -----------------------------------------------------------------------------
+    @include respond-to('medium') { 
+        .project-carousel__image {
+            //
+            // Modifiers.
+            // 
+            &.project-carousel__image--desktop {
+                display: block;
+            }
+            &.project-carousel__image--mobile {
+                display: none;
+            }
+        }
+    }
+}

@@ -7,7 +7,7 @@
  * Please conform to JSDoc:
  * @link https://jsdoc.app/tags-param.html#examples
  */
-import LazyLoad from "vanilla-lazyload";
+import LazyLoad from "vanilla-lazyload"
 
 // Little hello world to test compilers/transpilers 
 console.log('Running blog module.')

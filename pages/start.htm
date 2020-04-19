@@ -35,9 +35,6 @@ function onStart()
     }
 
     $this->addJs( $js );
-
-    /** @var string $containerClasses Additional container classes. */
-    $this['containerClasses'] = 'main-content--blog-page';
 }
 //////////////////////////////////////////////////////////
 ?>
@@ -106,12 +103,6 @@ function onStart()
                             {{ record.cover|media|resize(2000) }} 2000w"
                             data-sizes="100w"
                         >
-
-                        {# <picture
-                            <source media="(max-width: 799px)" data-srcset="{{ record.cover|media|resize(850) }}">
-                            <source media="(min-width: 800px)" data-srcset="{{ record.cover|media|resize(2200) }}">
-                            <img class="lazy" data-src="{{ record.cover|media|resize(850) }}">
-                        </picture> #}
                 {% if hasUrl %}
                     </a>
                 {% endif %}

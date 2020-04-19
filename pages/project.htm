@@ -34,9 +34,17 @@ function onStart()
     }
 
     $this->addJs( $js );
-
-    /** @var string $containerClasses Additional container classes. */
-    $this['containerClasses'] = 'main-content--project-page';
+}
+//////////////////////////////////////////////////////////
+function onEnd() 
+{
+    /**
+     * Let's handle non existent record properly.
+     */
+    if($this['builderDetails']->record === null) 
+    {
+        return \Illuminate\Support\Facades\Response::make(View::make('cms::404'), 404);
+    }
 }
 //////////////////////////////////////////////////////////
 ?>
@@ -45,8 +53,38 @@ function onStart()
 {% set displayColumn = builderDetails.displayColumn %}
 {% set notFoundMessage = builderDetails.notFoundMessage %}
 
-{% if record %}
-    {{ attribute(record, displayColumn) }}
-{% else %}
-    {{ notFoundMessage }}
-{% endif %}
+<main>
+    <div class="project-description">
+        <h1>{{ record.title }}</h1>
+        <div class="project-description__text">
+            {{ record.text|raw }}
+        </div>
+    </div>
+    <div class="project-carousel carousel">
+        {% for image in record.gallery %}
+        <div class="carousel-cell">
+            <img 
+                class="project-carousel__image project-carousel__image--desktop carousel-cell-image"
+                data-flickity-lazyload-src="{{ image.thumb(850, auto) }}"
+                data-flickity-lazyload-srcset="{{ image.thumb(850, auto) }} 850w,
+                {{ image.thumb(1200, auto) }} 1200w,
+                {{ image.thumb(1600, auto) }} 1600w,
+                {{ image.thumb(2000, auto) }} 2000w"
+                sizes="100w"
+                alt="{{ image.title }}"
+            >
+            <img 
+                class="project-carousel__image project-carousel__image--mobile lazy" 
+                data-src="{{ image.thumb(850, auto) }}"
+                data-srcset="{{ image.thumb(850, auto) }} 850w,
+                {{ image.thumb(1200, auto) }} 1200w,
+                {{ image.thumb(1600, auto) }} 1600w,
+                {{ image.thumb(2000, auto) }} 2000w"
+                data-sizes="100w"
+                alt="{{ image.title }}"
+            >
+        </div>
+        {% endfor %}
+    </div>
+</main>
+
