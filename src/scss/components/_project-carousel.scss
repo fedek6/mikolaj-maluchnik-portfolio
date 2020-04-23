@@ -29,6 +29,7 @@
     @include respond-to('medium') { 
         outline: none;
 
+        // Flickity slide
         .carousel-cell {
             width: 100%; /* full width */
             height: calc(100vh - #{$sticky-menu-height-destkop + $carousel-dots-bar-height});
@@ -39,7 +40,9 @@
             justify-content: center;
         }
 
+        // Image
         .project-carousel__image {
+            cursor: grab;
             //
             // Modifiers.
             // 
@@ -52,6 +55,7 @@
             }
         }
 
+        // Slide indicators
         .flickity-page-dots {
             display: block;
             height: $carousel-dots-bar-height;
@@ -76,10 +80,63 @@
                 }
             }
 
-            .got:hover,
+            .dot:hover,
             .dot.is-selected {
                 &::after { 
                     background-color: $active-ux;
+                }
+            }
+        }
+
+        // Flickity navigation
+        .flickity-button {
+            display: block;
+            position: absolute;
+            top: 50%;
+            margin-top: -48px;
+            z-index: 10;
+            width: 48px;
+            height: 48px;
+            padding: 0 0;
+            border: solid 1px $active-ux;
+            background-color: White;
+            color: $active-ux;
+            cursor: pointer;
+            transition: all .25s ease-out;
+
+            &:disabled {
+                border: solid 1px $non-active-ux;
+                color: $non-active-ux;
+                cursor: default;
+            }
+
+            &:not(:disabled):hover {
+                background-color: black;
+                color: white;
+            }
+
+
+            > svg {
+                display: none;
+            }
+
+            &.next {
+                right: $inner-padding-desktop;
+
+                // icon
+                &::after {
+                    content: ">";
+                    display: block;
+                }
+            }
+
+            &.previous {
+                left: $inner-padding-desktop;
+
+                // icon
+                &::after {
+                    content: "<";
+                    display: block;
                 }
             }
         }

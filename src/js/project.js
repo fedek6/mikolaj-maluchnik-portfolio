@@ -29,7 +29,8 @@ MediaWatcher.addDynamicListener(item => {
         if(typeof flkty === 'undefined') {
             console.log('INFO: Running Flickity')
             flkty = new Flickity( '.project-carousel', {
-                "lazyLoad": true
+                "lazyLoad": true,
+                "arrowShape": ''
             }); 
 
             flkty.on( 'change', (index) => {
