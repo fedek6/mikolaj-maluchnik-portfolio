@@ -29,7 +29,7 @@
 
         img {
             width: auto;
-            height: 40px;
+            height: 32px;
         }
 
         a {
@@ -105,7 +105,8 @@
             width: 100%;
 
             li {
-                font-weight: bold;
+                font-family: $menu-font-stack;
+                font-weight: $menu-font-weight;
 
                 &::after {
                     content: '';
@@ -155,7 +156,7 @@
         &__logo { 
             img {
                 width: auto;
-                height: 48px;
+                height: 40px;
             }
         }
 
@@ -228,7 +229,7 @@
                     // Important menu item.
                     &.menu-item--iportant {
                         a {
-                            border: solid 1px Black;
+                            border: solid $nav-border-width Black;
                             text-align: center;
                             transition: all .5s ease-out;
 

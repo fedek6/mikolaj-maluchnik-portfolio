@@ -1,5 +1,6 @@
 .contact-box {
-
+    font-family: $menu-font-stack;
+    font-weight: $menu-font-weight;
 
     .contact-box__btn {
         display: block;
@@ -19,7 +20,7 @@
 
         // Less important part of addresses.
         .less-important {
-            color: lighten(Black, 60);
+            color: lighten(Black, 50);
         }
 
         @include on-event {
@@ -66,14 +67,10 @@
             flex-grow: 1;
             flex-basis: 0;
     
-            border: solid 1px Black;
+            line-height: $rhytm-base * 5;
+            font-size: .875rem;
     
-            padding: 0 0;
-            font-weight: 700;
-            line-height: 34px;
-            font-size: .813rem;
-    
-            margin: 0 $rhytm-base/2;
+            margin: 0 $rhytm-base;
         }
 
         > :first-child {

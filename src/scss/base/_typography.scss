@@ -4,7 +4,7 @@
 body {
   color: $text-color;
   font-family: $text-font-stack;
-  font-weight: 300;
+  font-weight: $text-font-weight;
   line-height: 170%;
   text-align: left;
 }

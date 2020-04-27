@@ -13,17 +13,18 @@
         h1 {
             margin: 0 0 $rhytm-base * 1.5 0;
             padding: 0 0;
-            font-size: 1.25em;
-            line-height: 200%;
+            font-size: 1.5em;
+            line-height: $header-line-height-mobile;
             border-bottom: 1px solid Black;
             text-align: left;
             display: inline-block;
+            // font-weight: $header-font-weight;
         }
 
         p {
             margin: 0 0;
             text-align: left;
-            font-weight: 300;
+            font-weight: $text-font-weight;
             font-size: .875em;
             hyphens: auto;
         }
@@ -60,6 +61,24 @@
             order: 0;
             flex: 1 1 auto;
             align-self: auto;
+
+            max-width: 600px;
+
+            padding: 0 $grid-column-gap-desktop;
+
+
+            h1 {
+                margin: 0 0 $rhytm-base * 2 0;
+                font-size: 2em;
+                line-height: $header-line-height-desktop;
+            }
+
+            p {
+                // margin: 0 0;
+                text-align: justify;
+                font-weight: $text-font-weight;
+                // font-size: 1em;
+            }
         }
     }
 }

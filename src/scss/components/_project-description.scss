@@ -10,15 +10,16 @@
         margin: 0 0 $rhytm-base 0;
         padding: 0 0;
         font-size: 1.25em;
-        line-height: 200%;
+        line-height: $header-line-height-mobile;
         border-bottom: 1px solid Black;
         text-align: left;
         display: inline-block;
+        // font-weight: $header-font-weight;
     }
     .project-description__text {
         margin: 0 0 0 0;
         text-align: justify;
-        font-weight: 300;
+        font-weight: $text-font-weight;
         font-size: .875em;
         hyphens: auto;
 
@@ -40,6 +41,9 @@
         width: $grid-row-gap-desktop * 15;
         transition: transform .5s ease-out;
 
+        h1 {
+            line-height: $header-line-height-desktop;
+        }
 
         // -----------------------------------------------------------------------------
         // JS states.

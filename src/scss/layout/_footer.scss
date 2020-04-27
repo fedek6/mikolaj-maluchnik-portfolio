@@ -45,7 +45,7 @@
 
     p {
         font-size: .813em;
-        font-weight: 300;
+        font-weight: $text-font-weight;
         margin: 0 0;
         line-height: 1.25rem;
         letter-spacing: 0.03em;
@@ -92,6 +92,11 @@
             text-align: left;
             
             margin: 0 0 0 0;
+
+            svg {
+                width: auto;
+                height: 32px;
+            }
         }
 
         .main-footer__desc {

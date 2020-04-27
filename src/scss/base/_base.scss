@@ -46,6 +46,7 @@ a {
  @for $i from 1 through 6 {
   h#{$i} {
     font-family: $header-font-stack;
-    font-weight: 700;
+    font-weight: $header-font-weight;
+    font-style: $header-font-style;
   }
 }
