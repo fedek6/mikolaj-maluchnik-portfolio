@@ -1,0 +1,118 @@
+description = "Zdjęcie po lewej"
+
+[staticMenuMultilingual]
+code = "main-menu"
+
+[localePicker]
+forceUrl = 1
+
+[staticPage]
+useContent = 1
+default = 0
+
+[viewBag]
+containerClasses = "main-content--photo-left"
+bodyClasses = "static-page"
+==
+<?php
+//////////////////////////////////////////////////////////
+function onStart() 
+{
+    use RainLab\Translate\Classes\Translator;
+    use RainLab\Pages\Classes\Page;
+
+    /**
+     * Determine current language code.
+     * Depends on RainLab.Translate plugin.
+     */
+    $translator                 = Translator::instance();
+    $this['selectedLanguage']   = $translator->getLocale();
+    $this['current_url']        = Config::get('app.url') . '/' . $this['selectedLanguage'];
+}
+//////////////////////////////////////////////////////////
+?>
+==
+{# 
+    ______           _ _                      
+    | ___ \         | | |                     
+    | |_/ /___  __ _| | |__   ___   _ __ ___  
+    |    // _ \/ _` | | '_ \ / _ \ | '__/ _ \ 
+    | |\ \  __/ (_| | | | | |  __/_| | | (_) |
+    \_| \_\___|\__,_|_|_| |_|\___(_)_|  \___/ 
+                                              
+    @author:    Konrad Fedorczyk <contact@realhe.ro>
+    @about:     Photo on the left layout.
+#}
+{##################################################}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Mikołaj Maluchnik - {{ this.page.title }}</title>
+        {% for type,value in opengraph %}
+        <meta property="og:{{ type }}" content="{{ value }}" />
+        {% endfor %}
+        <meta name="description" content="{{ this.page.meta_description|default('Jesteśmy liderem badań rynku online w Polsce. Skutecznie i sprawnie łączymy nowoczesne technologie z wiedzą o zachowaniach konsumentów w świecie realnym i wirtualnym.') }}">
+        <meta name="title" content="{{ this.page.meta_title|default('IQS') }}">
+        <meta name="author" content="Mikołaj Maluchnik">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, min-width=320">
+        <meta name="generator" content="Realhe.ro">
+        <meta name="format-detection" content="telephone=no">
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ 'assets/favicon/apple-touch-icon.png?v=2bB9KbWldl'|theme }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ 'assets/favicon/favicon-32x32.png?v=2bB9KbWldl'|theme }}">
+        <link rel="manifest" href="{{ 'assets/favicon/site.webmanifest?v=2bB9KbWldl'|theme }}">
+        <link rel="mask-icon" href="{{ 'assets/favicon/safari-pinned-tab.svg?v=2bB9KbWldl'|theme }}" color="#5bbad5">
+        <link rel="shortcut icon" href="{{ 'assets/favicon/favicon.ico?v=2bB9KbWldl'|theme }}">
+        <script src="{{ 'assets/vendor/modernizr.min.js'|theme }}"></script>
+        {% partial 'shared_stylesheets' %}
+        <style>{{ 
+            [ 'assets/css/preloader.min.css', ]|inline|removeCssComments 
+        }}</style>
+        {% styles %}
+    </head>
+    <body aria-busy="true" lang="{{ selectedLanguage }}"{% if viewBag.bodyClasses %} class="{{ viewBag.bodyClasses }}"{% endif %}>
+        <!-- @begin: preloader -->
+        {% partial 'preloader.htm' %}
+        <!-- @end: preloader -->
+
+        {% partial 'header.htm' %}
+
+        <!-- @begin: main content -->
+        <div class="main-content {{ viewBag.containerClasses }}">
+
+            <main>
+                <article class="static-page-content static-page-content--photo-left">
+
+                    <div class="static-page-content__photo">
+                        <img 
+                            alt="{{ page.title }}"
+                            src="{{ page.bg|media|resize(850) }}"
+                            srcset="{{ page.bg|media|resize(850) }} 850w,
+                            {{ page.bg|media|resize(1200) }} 1200w,
+                            {{ page.bg|media|resize(1600) }} 1600w,
+                            {{ page.bg|media|resize(2000) }} 2000w"
+                            sizes="100w"
+                        >
+                    </div>
+
+                    <div class="static-page-content__text">
+                        <h1>{{ page.title }}</h1>
+                        {% page %}
+                    </div>
+
+                </article>
+            </main>
+    
+        </div>
+        <!-- @end: main content -->
+
+        <!-- @begin: main fotoer -->
+        {% partial 'footer.htm' %}
+        <!-- @end: main fotoer -->
+        
+        {% partial 'shared_scripts.htm' %}
+
+        {# Additional vaars for static page plugin. #}
+        {variable name="bg" label="Obrazek wyrózniający" tab="Grafika" type="mediafinder" mode="image"}{/variable}
+    </body>
+</html>

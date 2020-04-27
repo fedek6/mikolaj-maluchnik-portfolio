@@ -54,7 +54,7 @@ function onEnd()
 {% set notFoundMessage = builderDetails.notFoundMessage %}
 
 <main>
-    <div class="project-description">
+    <div class="project-description" aria-hidden="false">
         <h1>{{ record.title }}</h1>
         <div class="project-description__text">
             {{ record.text|raw }}

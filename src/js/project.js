@@ -19,6 +19,8 @@ let flkty;
 
 let lazyLoadInstance;
 
+let descriptionContainer = document.getElementsByClassName('project-description')[0]
+
 /**
  * Run Flickity only on bigger screens.
  */
@@ -33,8 +35,15 @@ MediaWatcher.addDynamicListener(item => {
                 "arrowShape": ''
             }); 
 
+            // Slide change callback.
             flkty.on( 'change', (index) => {
                 console.log('INFO: Current slide ' + index)
+
+                if(index > 0) {
+                    descriptionContainer.setAttribute('aria-hidden', 'true')
+                } else {
+                    descriptionContainer.setAttribute('aria-hidden', 'false')
+                }
             })
             
         } else {

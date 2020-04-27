@@ -6,6 +6,11 @@
     .carousel-cell {
         line-height: 0;
     }
+
+    .carousel-cell:not(:last-of-type) {
+        margin-bottom: $grid-row-gap-small;
+    }
+
     .project-carousel__image {
         //
         // Modifiers.
@@ -38,6 +43,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
+        }
+
+        .carousel-cell:not(:last-of-type) {
+            margin-bottom: 0;
         }
 
         // Image

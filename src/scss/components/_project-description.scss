@@ -38,5 +38,14 @@
         padding: $grid-row-gap-desktop $grid-column-gap-desktop;
         margin: 0 0;
         width: $grid-row-gap-desktop * 15;
+        transition: transform .5s ease-out;
+
+
+        // -----------------------------------------------------------------------------
+        // JS states.
+        // -----------------------------------------------------------------------------
+        &[aria-hidden="true"] {
+            transform: translateX($grid-row-gap-desktop * 15);
+        }
     }
 }
