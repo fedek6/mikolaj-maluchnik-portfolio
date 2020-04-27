@@ -53,3 +53,20 @@
   position: absolute;
   width: 1px;
 }
+
+/**
+ * Part of simple js plugin for e-mail
+ * protection.
+ */
+.js-mailprotector {
+  span {
+    font-size: 0;
+    line-height: 0;
+  }
+  span::after {
+    content: "@";
+    display: inline-block;
+    font-size: initial;
+    line-height: 100%;
+  }
+}

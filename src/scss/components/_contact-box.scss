@@ -1,0 +1,87 @@
+.contact-box {
+
+
+    .contact-box__btn {
+        display: block;
+        text-align: center;
+
+        border: solid 1px Black;
+
+        padding: 0 0;
+        font-weight: 700;
+        line-height: $rhytm-base * 5;
+        font-size: .875rem;
+
+        margin-bottom: $rhytm-base * 2;
+
+        cursor: pointer;
+        transition: all .5s ease-out;
+
+        // Less important part of addresses.
+        .less-important {
+            color: lighten(Black, 60);
+        }
+
+        @include on-event {
+            background-color: $text-color;
+            color: white;
+            text-decoration: none;
+        }
+    }
+
+    // Restore good @ size.
+    .js-mailprotector {
+        span::after {
+          font-size: .813rem;
+        }
+    }
+
+    > :last-child {
+        margin-bottom: 0;
+    }
+
+    // -----------------------------------------------------------------------------
+    // Modifiers.
+    // -----------------------------------------------------------------------------
+    &.contact-box--margin-top {
+        margin-top: $rhytm-base * 3;
+    }
+
+    // -----------------------------------------------------------------------------
+    // Media queries.
+    // -----------------------------------------------------------------------------
+    @include respond-to('medium') { 
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-content: stretch;
+        align-items: flex-start;
+
+        .contact-box__btn {
+            // order: 0;
+            flex: 1 1 auto;
+            align-self: auto;
+            text-align: center;
+            flex-grow: 1;
+            flex-basis: 0;
+    
+            border: solid 1px Black;
+    
+            padding: 0 0;
+            font-weight: 700;
+            line-height: 34px;
+            font-size: .813rem;
+    
+            margin: 0 $rhytm-base/2;
+        }
+
+        > :first-child {
+            margin-left: 0;
+        }
+    
+        > :last-child {
+            margin-right: 0;
+        }
+    }
+}

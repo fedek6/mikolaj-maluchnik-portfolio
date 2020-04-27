@@ -3,6 +3,36 @@
 // -----------------------------------------------------------------------------
 
 .static-page-content {
+    .static-page-content__photo {
+        line-height: 0;
+    }
+    
+    .static-page-content__text {
+        padding: $rhytm-base * 2 $inner-padding-small $grid-row-gap-small $inner-padding-small;
+
+        h1 {
+            margin: 0 0 $rhytm-base * 1.5 0;
+            padding: 0 0;
+            font-size: 1.25em;
+            line-height: 200%;
+            border-bottom: 1px solid Black;
+            text-align: left;
+            display: inline-block;
+        }
+
+        p {
+            margin: 0 0;
+            text-align: left;
+            font-weight: 300;
+            font-size: .875em;
+            hyphens: auto;
+        }
+
+        p:not(:last-of-type) {
+            margin-bottom: $rhytm-base * 1.5;
+        }
+    }
+
     // -----------------------------------------------------------------------------
     // Media queries.
     // -----------------------------------------------------------------------------
@@ -12,7 +42,7 @@
         flex-wrap: nowrap;
         justify-content: flex-start;
         align-content: stretch;
-        align-items: flex-start;
+        align-items: center;
 
         .static-page-content__photo {
             height: calc(100vh - #{$sticky-menu-height-destkop});

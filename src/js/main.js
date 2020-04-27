@@ -10,6 +10,7 @@
 import { hidePreloader, showPreloader } from './components/preloader'
 import Menu from './components/menu'
 import MediaWatcher from './components/mediawatcher'
+import mailProtector from './components/mailprotector';
 
 // Little hello world to test compilers/transpilers 
 
@@ -17,6 +18,12 @@ import MediaWatcher from './components/mediawatcher'
 let greetingMessage = "%cHello there! Want to hire me?\n Go to http://realhe.ro \n :)"
 
 console.log(greetingMessage, 'background: #000; color: Yellow; font-size: 1.25em')
+
+
+/**
+ * Protect emails.
+ */
+mailProtector()
 
 /**
  * Window onload.
