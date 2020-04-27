@@ -15,7 +15,7 @@
             padding: 0 0;
             font-size: 1.5em;
             line-height: $header-line-height-mobile;
-            border-bottom: 1px solid Black;
+            border-bottom: $header-border-mobile solid Black;
             text-align: left;
             display: inline-block;
             // font-weight: $header-font-weight;
@@ -71,6 +71,7 @@
                 margin: 0 0 $rhytm-base * 2 0;
                 font-size: 2em;
                 line-height: $header-line-height-desktop;
+                border-bottom: solid $header-border-desktop black;
             }
 
             p {
