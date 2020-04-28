@@ -48,6 +48,30 @@
         margin-top: $rhytm-base * 3;
     }
 
+    &.contact-box--inverse {
+        .contact-box__btn {
+            border: solid $nav-border-width Black;
+            background-color: Black;
+            color: white;
+
+            // Less important part of addresses.
+            .less-important {
+                    color: darken(White, 50);
+            }
+    
+            @include on-event {
+                background-color: White;
+                color: Black;
+                text-decoration: none;
+                
+                // Less important part of addresses.
+                .less-important {
+                    color: black;
+                }
+            }
+        }
+    }
+
     // -----------------------------------------------------------------------------
     // Media queries.
     // -----------------------------------------------------------------------------

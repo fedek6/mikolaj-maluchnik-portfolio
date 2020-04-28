@@ -27,7 +27,7 @@
 
         width: 100%;
 
-        padding: $rhytm-base $inner-padding-small 0 $inner-padding-small;
+        padding: $rhytm-base * 2 $inner-padding-small 0 $inner-padding-small;
 
         /// Link to content
         a {

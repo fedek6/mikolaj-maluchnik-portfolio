@@ -1,6 +1,6 @@
 <footer class="main-footer">
     <div class="main-footer__logo">
-        {{ source('../assets/images/logo_3.svg') }}
+        {{ source('../assets/images/' ~  config_get('theme.logo')) }}
     </div>
     <div class="main-footer__desc">
         <p>{{ '© :year All Rights Reserved'|_({ year: "now"|date("Y") }) }}</p>

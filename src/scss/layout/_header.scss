@@ -27,6 +27,9 @@
         line-height: 0;
         font-size: 0;
 
+        // Due to smaller size of graphic logo.
+        padding-top: 5px;
+
         img {
             width: auto;
             height: 32px;
@@ -108,6 +111,8 @@
                 font-family: $menu-font-stack;
                 font-weight: $menu-font-weight;
 
+                text-transform: uppercase;
+
                 &::after {
                     content: '';
                     background-color: White;
@@ -154,6 +159,9 @@
 
         // Logo on the left.
         &__logo { 
+            // Due to smaller size of graphic logo.
+            padding-top: 0;
+
             img {
                 width: auto;
                 height: 40px;
@@ -189,7 +197,7 @@
                 }
 
                 li {
-                    font-weight: bold;
+                    font-weight: $menu-font-weight;
                     display: inline-block;
 
                     &::after {
