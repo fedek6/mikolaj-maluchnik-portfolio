@@ -2,7 +2,7 @@
 // This file contains all styles related to the project description.
 // -----------------------------------------------------------------------------
 .project-description {
-    padding: $rhytm-base $inner-padding-small 0 $inner-padding-small;
+    padding: $rhytm-base * 6 $inner-padding-small 0 $inner-padding-small;
     margin: 0 0 $rhytm-base * 2 0;
     
 
@@ -13,14 +13,16 @@
         line-height: $header-line-height-mobile;
         border-bottom: 1px solid Black;
         text-align: left;
-        display: inline-block;
+        display: block;
+        //width: 100%;
         // font-weight: $header-font-weight;
     }
+
     .project-description__text {
         margin: 0 0 0 0;
         text-align: justify;
         font-weight: $text-font-weight;
-        font-size: .875em;
+        font-size: $text-size-mobile;
         hyphens: auto;
 
         p {
@@ -37,12 +39,21 @@
     // -----------------------------------------------------------------------------
     @include respond-to('medium') { 
         padding: $grid-row-gap-desktop $grid-column-gap-desktop;
+
         margin: 0 0;
         width: $grid-row-gap-desktop * 15;
         transition: transform .5s ease-out;
 
         h1 {
+            font-size: 1.25em;
             line-height: $header-line-height-desktop;
+            padding: 0 0 $rhytm-base 0;
+            width: 100%;
+            display: inline-block;
+        }
+
+        .project-description__text {
+            font-size: $text-size-desktop;
         }
 
         // -----------------------------------------------------------------------------
@@ -50,6 +61,12 @@
         // -----------------------------------------------------------------------------
         &[aria-hidden="true"] {
             transform: translateX($grid-row-gap-desktop * 15);
+        }
+    }
+    @include respond-to('large') { 
+
+        h1 {
+            font-size: 1.5em;
         }
     }
 }

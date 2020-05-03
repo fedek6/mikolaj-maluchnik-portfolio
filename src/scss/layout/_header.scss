@@ -1,34 +1,33 @@
 // -----------------------------------------------------------------------------
 // This file contains all styles related to the header of the site/application.
 // -----------------------------------------------------------------------------
+// Config.
+$hamburger-line-height: 2px;
+$hamburger-width: 4 * $rhytm-base + $rhytm-base * 1.5;
+$hamburger-height: 4 * $rhytm-base - $rhytm-base;
 
 .main-header {
     display: grid;
     gap: 0 $grid-row-gap-desktop;
     grid-template-columns: 120px 1fr;
-
-    padding: $inner-padding-small/2 $inner-padding-small;
-
-
+    padding: ($inner-padding-small / 2) $inner-padding-small;
     position: sticky;
     top: 0px;
     left: 0px;
-
     width: 100%;
-    background-color: rgba(255,255,255,0.85);
+    background-color: rgba(255, 255, 255, 0.85);
     z-index: 99;
 
     // Logo on the left.
     &__logo {
         grid-column: 1 / span 1;
-
         width: auto;
         display: block;
         line-height: 0;
         font-size: 0;
 
         // Due to smaller size of graphic logo.
-        padding-top: 5px;
+        // padding-top: 5px;
 
         img {
             width: auto;
@@ -38,7 +37,7 @@
         a {
             display: block;
             outline: none;
-            transition: opacity .5s cubic-bezier(0.39, 0.575, 0.565, 1);
+            transition: opacity 0.5s cubic-bezier(0.39, 0.575, 0.565, 1);
 
             &:hover {
                 opacity: .3;
@@ -52,12 +51,53 @@
         text-align: right;
 
         // Global hamburger look.
+
         .hamburger {
-            padding: 10px 0 0 0;
+            // padding: 10px 0 0 0;
             outline: none;
+
+            //padding: 0 0;
+            background-color: transparent;
+            border: none;
+            padding: ($rhytm-base / 2) 0;
 
             .hamburger-box {
                 pointer-events: none;
+                display: block;
+                height: $hamburger-height;
+                width: $hamburger-width;
+                position: relative;
+
+                // Openning button.
+                .hamburger-inner {
+                    display: block;
+                    width: 100%;
+                    height: $hamburger-line-height;
+                    background-color: black;
+                    position: absolute;
+                    top: calc(50% - #{$hamburger-line-height / 2});
+                }
+
+                // Lines look.
+                &::before,
+                &::after {
+                    content: '';
+                    display: block;
+                    width: 100%;
+                    height: $hamburger-line-height;
+                    background-color: black;
+                    position: absolute;
+                }
+
+                // Line 1.
+                &::before {
+                    top: 0;
+                }
+
+                // Line 2.
+                &::after {
+                    bottom: 0;
+                }
             }
         }
     }
@@ -79,23 +119,35 @@
 
         // transition: all .35s ease-out;
 
+        will-change: transform, filter;
         transition-property: transform, filter;
-        transition-duration: .4s;
-        transition-timing-function: ease-out, linear;
-
+        transition-duration: .5s;
+        transition-timing-function: ease-out;
 
         // This is closing button.
         .hamburger.is-active {
             position: absolute;
-            right: 20px;
-            top: 20px;
+            top: $inner-padding-small / 2;
+            right: $inner-padding-small;
 
-            .hamburger-inner {
-                background-color: white;
+            .hamburger-box {
+                width: $hamburger-width - $rhytm-base;
 
-                &::before,
-                &::after {
+                .hamburger-inner {
                     background-color: white;
+                    transform: rotate(45deg);
+                    transform-origin: center center;
+                }
+
+                &::before {
+                    background-color: white;
+                    top: calc(50% - #{$hamburger-line-height});
+                    transform: rotate(-45deg);
+                    transform-origin: center center;
+                }
+
+                &::after {
+                    display: none;
                 }
             }
         }
@@ -110,7 +162,6 @@
             li {
                 font-family: $menu-font-stack;
                 font-weight: $menu-font-weight;
-
                 text-transform: uppercase;
 
                 &::after {
@@ -124,7 +175,7 @@
                     left: 35%;
                 }
 
-                a { 
+                a {
                     color: White;
                     display: block;
                     font-size: 1.125rem;
@@ -144,6 +195,7 @@
         transform: translate3d(0, 0, 0);
     }
 
+    // State invisible - offsreen.
     &__menu-container[aria-hidden="true"] {
         // left: 107vw;
         transform: translate3d(110vw, 0, 0);
@@ -153,12 +205,12 @@
     // -----------------------------------------------------------------------------
     // Media queries.
     // -----------------------------------------------------------------------------
-    @include respond-to('medium') {
+    @include respond-to("medium") {
         gap: 0 $grid-column-gap-desktop;
         padding: $inner-padding-small $inner-padding-small;
 
         // Logo on the left.
-        &__logo { 
+        &__logo {
             // Due to smaller size of graphic logo.
             padding-top: 0;
 
@@ -172,7 +224,7 @@
             // Hide hamburgers.
             .hamburger {
                 display: none;
-            } 
+            }
         }
 
         // Reset menu container.
@@ -190,10 +242,10 @@
             // Items look.
             ul {
                 font-size: 0;
-                padding-top: (44px - 34px);
-                
+                padding-top: 44px - 34px;
+
                 li:not(:last-of-type) {
-                    margin-right: $grid-column-gap-small *2;
+                    margin-right: $grid-column-gap-small * 2;
                 }
 
                 li {
@@ -204,13 +256,13 @@
                         display: none;
                     }
 
-                    a { 
+                    a {
                         color: $text-color;
                         display: block;
                         font-size: .813rem;
                         height: 34px;
                         line-height: 34px;
-                        padding: 0 $grid-column-gap-small * 2;
+                        padding: 0 ($grid-column-gap-small * 2);
                         min-width: 100px;
                         position: relative;
                         text-align: right;
@@ -229,13 +281,24 @@
                             text-decoration: none;
 
                             &::after {
-                                width: calc(100% - 20px);
+                                width: calc(100% - 30px);
+                            }
+                        }
+                    }
+
+                    // Active item.
+                    &.active {
+                        a {
+                            text-decoration: none;
+
+                            &::after {
+                                width: calc(100% - 30px);
                             }
                         }
                     }
 
                     // Important menu item.
-                    &.menu-item--iportant {
+                    &.menu-item--important {
                         a {
                             border: solid $nav-border-width Black;
                             text-align: center;
@@ -253,6 +316,14 @@
                                     display: none;
                                 }
                             }
+                        }
+                    }
+
+                    // Important & active menu item.
+                    &.menu-item--important.active {
+                        a {
+                            background-color: $text-color;
+                            color: white;
                         }
                     }
                 }

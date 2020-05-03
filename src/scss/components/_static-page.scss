@@ -5,6 +5,10 @@
 .static-page-content {
     .static-page-content__photo {
         line-height: 0;
+
+        img {
+            max-width: 100%;
+        }
     }
     
     .static-page-content__text {
@@ -17,7 +21,7 @@
             line-height: $header-line-height-mobile;
             border-bottom: $header-border-mobile solid Black;
             text-align: left;
-            display: inline-block;
+            display: block;
             // font-weight: $header-font-weight;
         }
 
@@ -27,6 +31,7 @@
             font-weight: $text-font-weight;
             font-size: .875em;
             hyphens: auto;
+            font-size: $text-size-mobile;
         }
 
         p:not(:last-of-type) {
@@ -68,16 +73,18 @@
 
 
             h1 {
-                margin: 0 0 $rhytm-base * 2 0;
+                margin: 0 0 $rhytm-base * 3 0;
                 font-size: 2em;
                 line-height: $header-line-height-desktop;
                 border-bottom: solid $header-border-desktop black;
+                display: inline-block;
             }
 
             p {
                 // margin: 0 0;
                 text-align: justify;
                 font-weight: $text-font-weight;
+                font-size: $text-size-desktop;
                 // font-size: 1em;
             }
         }

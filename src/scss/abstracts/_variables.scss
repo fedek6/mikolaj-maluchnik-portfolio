@@ -12,12 +12,14 @@
 $header-font-stack: 'Roboto', sans-serif !default;
 // $header-font-stack:'Roboto Mono', monospace !default;
 
-$header-line-height-mobile: 150% !default;
-$header-line-height-desktop: 150% !default;
+$header-line-height-mobile: 120% !default;
+$header-line-height-desktop: 130% !default;
 
 /// Regular font family
 /// @type List
-$text-font-stack: 'Roboto', sans-serif !default;
+// $text-font-stack: 'Roboto', sans-serif !default;
+// $text-font-stack: 'PT Serif', serif !default;
+$text-font-stack: 'Montserrat', sans-serif !default;
 
 /// Menu font family
 /// @type List
@@ -28,9 +30,18 @@ $menu-font-stack: 'Roboto', sans-serif !default;
 $text-font-weight: 300 !default;
 $menu-font-weight: 500 !default;
 
+$text-line-height-mobile: 160% !default;
+$text-line-height-desktop: 160% !default;
+
 $header-font-weight: 400 !default;
 $header-font-style: normal !default;
 
+$header-letter-spacing-mobile: normal !default;
+$header-letter-spacing-desktop: normal !default;
+
+
+$text-size-mobile: .938em !default;
+$text-size-desktop: .875em !default;
 
 
 
@@ -84,7 +95,7 @@ $max-width: 1180px !default;
 $breakpoints: (
   'small':  ( min-width:  767px ),
   'medium': ( min-width:  992px ),
-  'large':  ( min-width: 1200px )
+  'large':  ( min-width: 1400px )
 ) !default;
 
 

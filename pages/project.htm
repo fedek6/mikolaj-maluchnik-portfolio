@@ -45,6 +45,11 @@ function onEnd()
     {
         return \Illuminate\Support\Facades\Response::make(View::make('cms::404'), 404);
     }
+
+    /** 
+     * Page title.
+     */
+    $this->page->title = $this['builderDetails']->record->title;
 }
 //////////////////////////////////////////////////////////
 ?>
@@ -65,22 +70,26 @@ function onEnd()
         <div class="carousel-cell">
             <img 
                 class="project-carousel__image project-carousel__image--desktop carousel-cell-image"
-                data-flickity-lazyload-src="{{ image.thumb(850, auto) }}"
-                data-flickity-lazyload-srcset="{{ image.thumb(850, auto) }} 850w,
-                {{ image.thumb(1200, auto) }} 1200w,
-                {{ image.thumb(1600, auto) }} 1600w,
-                {{ image.thumb(2000, auto) }} 2000w"
-                sizes="100w"
+                data-flickity-lazyload-src="{{ image.thumb(820, auto, { quality: 65 }) }}"
+                data-flickity-lazyload-srcset="{{ image.thumb(820, auto, { quality: 65 } ) }} 820w,
+                {{ image.getThumb(1200, auto, { quality: 65 } ) }} 1200w,
+                {{ image.getThumb(1600, auto, { quality: 65 } ) }} 1600w,
+                {{ image.getThumb(2000, auto, { quality: 65 } ) }} 2200w"
+                sizes="(min-width: 2200px) 2200px,
+                    (max-width: 2200px) and (min-width: 1600px) 1600px,
+                    (max-width: 1600px) and (min-width: 1200px) 1200px,
+                    (max-width: 1200px) 820px,
+                    100vw"
                 alt="{{ image.title }}"
             >
             <img 
                 class="project-carousel__image project-carousel__image--mobile lazy" 
-                data-src="{{ image.thumb(850, auto) }}"
-                data-srcset="{{ image.thumb(850, auto) }} 850w,
-                {{ image.thumb(1200, auto) }} 1200w,
-                {{ image.thumb(1600, auto) }} 1600w,
-                {{ image.thumb(2000, auto) }} 2000w"
-                data-sizes="100w"
+                data-src="{{ image.getThumb(820, auto) }}"
+                data-srcset="{{ image.getThumb(820, auto, { quality: 65 }) }} 820w,
+                {{ image.getThumb(1200, auto, { quality: 65 }) }} 1200w"
+                data-sizes="(min-width: 2200px) 2200px,
+                    (min-width: 1200px) 1200px,
+                    820px"
                 alt="{{ image.title }}"
             >
         </div>

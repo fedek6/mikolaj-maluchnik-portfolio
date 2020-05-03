@@ -31,7 +31,7 @@
 }
 
 /// During loading...
-body[aria-busy="true"] {
+/* body[aria-busy="true"] {
     .main-content {
         filter: blur(4px);
     }
@@ -42,4 +42,4 @@ body[aria-busy="false"] {
     .main-content {
         filter: blur(0);
     }
-}
+} */

@@ -13,7 +13,8 @@ module.exports = function (grunt) {
     postcss: 'grunt-postcss',
     cssmin: 'grunt-contrib-cssmin',
     imagemin: 'grunt-contrib-imagemin',
-    assets_versioning: 'grunt-assets-versioning'
+    assets_versioning: 'grunt-assets-versioning',
+    favicons: 'grunt-favicons'
   })
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt)
@@ -26,6 +27,16 @@ module.exports = function (grunt) {
       client: require('./package.json').appPath || '.',
       server: '.',
       dist: '.'
+    },
+
+    favicons: {
+      options: {
+        // Task-specific options go here.
+      },
+      icons: {
+        src: './src/favicon/favicon.png',
+        dest: './assets/favicon/'
+      },
     },
 
     eslint: {
@@ -43,8 +54,6 @@ module.exports = function (grunt) {
           './src/js/main.js',
           './src/js/blog.js',
           './src/js/project.js'
-          //'./src/js/carousel-page.js',
-          //'./src/js/side-selector.js'
         ],
         dest: './assets/js/common.js',
         options: {
@@ -58,6 +67,9 @@ module.exports = function (grunt) {
             }]
           ],
           plugin: [
+            ['minifyify', {
+              map: false
+            }], 
             ['factor-bundle', {
               outputs: [
                 './assets/js/main.js',
@@ -77,7 +89,7 @@ module.exports = function (grunt) {
         dest: './assets/js/common.min.js',
         options: {
           browserifyOptions: {
-            debug: false,
+            debug: true,
             global: true
           },
           transform: [
@@ -86,9 +98,9 @@ module.exports = function (grunt) {
             }]
           ],
           plugin: [
-            ['minifyify', {
+            /* ['minifyify', {
               map: false
-            }],
+            }], */
             ['factor-bundle', {
               outputs: [
                 './assets/js/main.min.js',
@@ -100,6 +112,7 @@ module.exports = function (grunt) {
         }
       }
     },
+    
     // Empties folders to start fresh
     clean: {
       dist: {
@@ -222,7 +235,8 @@ module.exports = function (grunt) {
     'cssmin',
     'browserify:production',
     'imagemin',
-    //'assets_versioning'
+    'favicons',
+    'assets_versioning'
   ])
 
   // build default

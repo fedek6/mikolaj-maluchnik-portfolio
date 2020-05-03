@@ -14,11 +14,26 @@ items:
             isExternal: '0'
     -
         title: Blog
+        nesting: ''
         type: url
         url: /
         code: ''
+        reference: ''
+        cmsPage: ''
+        replace: ''
         viewBag:
             isHidden: '0'
             cssClass: ''
+            isExternal: '0'
+    -
+        title: Contact
+        nesting: '0'
+        type: static-page
+        code: ''
+        reference: contact
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            cssClass: menu-item--important
             isExternal: '0'
 name: 'Main menu EN'

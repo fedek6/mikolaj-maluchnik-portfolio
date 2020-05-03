@@ -1,26 +1,18 @@
 items:
     -
         title: Blog
-        nesting: ''
         type: url
-        url: /
+        url: /pl
         code: ''
-        reference: ''
-        cmsPage: ''
-        replace: ''
         viewBag:
             isHidden: '0'
             cssClass: ''
             isExternal: '0'
     -
         title: Dyplom
-        nesting: ''
         type: url
-        url: /
+        url: /pl/projekt/dyplom
         code: ''
-        reference: ''
-        cmsPage: ''
-        replace: ''
         viewBag:
             isHidden: '0'
             cssClass: ''
@@ -40,11 +32,15 @@ items:
             isExternal: '0'
     -
         title: Kontakt
-        type: url
-        url: /
+        nesting: '0'
+        type: static-page
+        url: ''
         code: ''
+        reference: contact
+        cmsPage: ''
+        replace: '0'
         viewBag:
             isHidden: '0'
-            cssClass: menu-item--iportant
+            cssClass: menu-item--important
             isExternal: '0'
 name: 'Main menu PL'

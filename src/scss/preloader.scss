@@ -20,7 +20,7 @@ body[aria-busy="true"] {
 #preloader {
     width: 100vw;
     height: 100vh;
-    background: white;
+    background: Black;
     position: fixed;
     top: 0;
     left: 0;
@@ -53,20 +53,19 @@ body[aria-busy="true"] {
         width: 48px;
         height: 48px;
 
-        animation: rotation 1.6s infinite cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        animation: rotation 2s infinite cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
-        &.animate-hide {
-            width: 200px;
-            height: 200px;
-            transition: all .7s ease-in;
-        }
+        // Animation before preloade hide.
+        /* &.animate-hide {
+
+        } */
 
         > svg {
             max-width: 100%;
             height: auto;
 
             path {
-                fill: darken(White, 10);
+                fill: white;
             }
         }
     }

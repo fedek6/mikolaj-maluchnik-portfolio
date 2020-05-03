@@ -31,7 +31,7 @@ MediaWatcher.addDynamicListener(item => {
         if(typeof flkty === 'undefined') {
             console.log('INFO: Running Flickity')
             flkty = new Flickity( '.project-carousel', {
-                "lazyLoad": true,
+                "lazyLoad": 3,
                 "arrowShape": ''
             }); 
 
@@ -62,7 +62,8 @@ MediaWatcher.addDynamicListener(item => {
 
             lazyLoadInstance = new LazyLoad({
                 elements_selector: ".project-carousel__image--mobile",
-                threshold: 88,
+
+                threshold: 300,
                 callback_loaded: (element) => {
                     element.parentNode.parentNode.classList.add('loaded')
                 }

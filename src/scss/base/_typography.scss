@@ -5,6 +5,32 @@ body {
   color: $text-color;
   font-family: $text-font-stack;
   font-weight: $text-font-weight;
-  line-height: 170%;
+  line-height: $text-line-height-mobile;
   text-align: left;
 }
+
+
+// Letter spacing.
+@for $i from 1 through 6 {
+  h#{$i} {
+    letter-spacing: $header-letter-spacing-mobile;
+  }
+}
+
+
+// -----------------------------------------------------------------------------
+// Media queries.
+// -----------------------------------------------------------------------------
+@include respond-to('medium') { 
+  body {
+    line-height: $text-line-height-desktop;
+  }  
+
+  // Letter spacing.
+  @for $i from 1 through 6 {
+    h#{$i} {
+      letter-spacing: $header-letter-spacing-desktop;
+    }
+  }
+}
+

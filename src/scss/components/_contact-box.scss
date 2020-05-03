@@ -9,8 +9,8 @@
         border: solid $nav-border-width Black;
 
         padding: 0 0;
-        font-weight: 700;
-        line-height: $rhytm-base * 5;
+        font-weight: $menu-font-weight;
+        line-height: $rhytm-base * 6;
         font-size: .875rem;
 
         margin-bottom: $rhytm-base * 2;
@@ -103,6 +103,13 @@
     
         > :last-child {
             margin-right: 0;
+        }
+
+        // -----------------------------------------------------------------------------
+        // Modifiers.
+        // -----------------------------------------------------------------------------
+        &.contact-box--margin-top {
+            margin-top: $rhytm-base * 3;
         }
     }
 }

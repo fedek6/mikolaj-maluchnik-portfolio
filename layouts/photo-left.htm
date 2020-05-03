@@ -48,7 +48,7 @@ function onStart()
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Mikołaj Maluchnik - {{ this.page.title }}</title>
+        <title>Mikołaj Maluchnik{% if this.page.title is not empty %} - {{ this.page.title }}{% endif %}</title>
         {% for type,value in opengraph %}
         <meta property="og:{{ type }}" content="{{ value }}" />
         {% endfor %}
@@ -91,7 +91,11 @@ function onStart()
                             {{ page.bg|media|resize(1200) }} 1200w,
                             {{ page.bg|media|resize(1600) }} 1600w,
                             {{ page.bg|media|resize(2000) }} 2000w"
-                            sizes="100w"
+                            sizes="(min-width: 2500px) 2000px,
+                                (max-width: 2500px) and (min-width: 1600px) 1600px,
+                                (max-width: 1600px) and (min-width: 1200px) 1200px,
+                                (max-width: 1200px) 850px,
+                                100vw"
                         >
                     </div>
 
