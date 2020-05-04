@@ -201,7 +201,7 @@
                 overflow: hidden;
 
                 transition: transform 1s ease-out;
-                transition-delay: 2s;
+                // transition-delay: 2s;
                 will-change: transform;
 
                 transform: translateX(100%);
@@ -210,7 +210,7 @@
             }
 
             // Animation on load
-            img.loaded {
+            img.loaded.visible {
                 transform:translateX(0);
                 opacity:1;
             }
@@ -221,7 +221,6 @@
                 font-size: 0;
             }
         }
-
     }
     @include respond-to('large') { 
         // Header
@@ -264,7 +263,7 @@
                 transform: translateX(-100%);
             }
 
-            img.loaded {
+            img.loaded.visible {
                 transform:translateX(0);
             }
         }

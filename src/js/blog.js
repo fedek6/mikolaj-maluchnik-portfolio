@@ -8,6 +8,7 @@
  * @link https://jsdoc.app/tags-param.html#examples
  */
 import LazyLoad from "vanilla-lazyload"
+import { isInViewport, isElementVisible } from './components/utils';
 
 // Little hello world to test compilers/transpilers 
 console.log('Running blog module.')
@@ -50,5 +51,38 @@ let lazyLoadInstance = new LazyLoad({
 	threshold: 88,
 	callback_loaded: (element) => {
 		element.parentNode.parentNode.classList.add('loaded')
+		element.closest('article').classList.add('loaded')
+		console.log('INFO: Image loaded')
 	}
-});
+})
+
+/**
+ * Watch visibility
+ */
+let articles = document.getElementsByClassName('blog-post-teaser')
+
+function markVisible(elements) {
+
+	for (let element of elements) {
+		if (isElementVisible(element)) {
+			// element.style.border = "solid 2px Yellow"
+			element.classList.add('visible')
+			element.getElementsByTagName('img')[0].classList.add('visible')
+		}
+	}
+}
+
+/**
+ * Window onload.
+ */
+window.addEventListener('load', (event) => {
+	
+
+	setInterval(() => {
+		markVisible(articles)
+	}, 600)
+
+	/* window.addEventListener('scroll', function (event) {
+		markVisible(articles)
+	}, false) */
+})

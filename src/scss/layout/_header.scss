@@ -50,6 +50,10 @@ $hamburger-height: 4 * $rhytm-base - $rhytm-base;
         grid-column: 2 / span 1;
         text-align: right;
 
+        nav {
+            line-height: 0;
+        }
+
         // Global hamburger look.
 
         .hamburger {
