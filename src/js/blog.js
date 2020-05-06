@@ -8,7 +8,7 @@
  * @link https://jsdoc.app/tags-param.html#examples
  */
 import LazyLoad from "vanilla-lazyload"
-import { isInViewport, isElementVisible } from './components/utils';
+import { isElementVisible } from './components/utils';
 
 // Little hello world to test compilers/transpilers 
 console.log('Running blog module.')
@@ -50,8 +50,15 @@ let lazyLoadInstance = new LazyLoad({
 	elements_selector: ".lazy",
 	threshold: 88,
 	callback_loaded: (element) => {
-		element.parentNode.parentNode.classList.add('loaded')
+		
+
+		//element.parentNode.parentNode.classList.add('loaded')
+		
 		element.closest('article').classList.add('loaded')
+		element.closest('.blog-post-teaser__content').classList.add('loaded')
+		
+		// element.parentNode.classList.add('loaded')
+
 		console.log('INFO: Image loaded')
 	}
 })
@@ -68,6 +75,7 @@ function markVisible(elements) {
 			// element.style.border = "solid 2px Yellow"
 			element.classList.add('visible')
 			element.getElementsByTagName('img')[0].classList.add('visible')
+			element.getElementsByClassName('blog-post-teaser__content')[0].classList.add('visible')
 		}
 	}
 }

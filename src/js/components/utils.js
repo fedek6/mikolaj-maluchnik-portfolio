@@ -15,6 +15,11 @@ export function isInViewport(elem) {
 	);
 }
 
+/**
+ * Is element visible in viewport?
+ * 
+ * @param {*} el 
+ */
 export function isElementVisible(el) {
     var rect     = el.getBoundingClientRect(),
         vWidth   = window.innerWidth || document.documentElement.clientWidth,
