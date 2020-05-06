@@ -68,30 +68,31 @@
     // Media queries.
     // -----------------------------------------------------------------------------
     @include respond-to('medium') {
-        padding: $rhytm-base * 6 $inner-padding-small;
+        padding: $rhytm-base * 8 $inner-padding-small $rhytm-base * 6 $inner-padding-small;
         color: white;
 
-        display: flex;
+        /* display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
         justify-content: flex-start;
         align-content: stretch;
-        align-items: center;
+        align-items: center; */
         
 
         p {
             font-size: .813em;
+            line-height: 130%;
             // letter-spacing: 0.05em;
             // line-height: 1rem;
         }
 
         .main-footer__logo {
-            order: 0;
+            /* order: 0;
             flex: 1 1 auto;
-            align-self: auto;
-            text-align: left;
+            align-self: auto; 
+            text-align: left; */
             
-            margin: 0 0 0 0;
+            margin: 0 0 $rhytm-base * 4 0;
 
             svg {
                 width: auto;
@@ -100,10 +101,10 @@
         }
 
         .main-footer__desc {
-            order: 0;
+            /* order: 0;
             flex: 1 1 auto;
             align-self: auto;
-            text-align: right;
+            text-align: right; */
         }
     }
 }

@@ -63,7 +63,7 @@
         h1 {
             margin: 0 0 $rhytm-base 0;
             padding: 0 0 $rhytm-base 0;
-            font-size: 1.375em;
+            font-size: $header-front-size-mobile;
             line-height: $header-line-height-mobile;
             border-bottom: $header-border-mobile solid Black;
             text-align: left;
@@ -139,6 +139,7 @@
             align-self: auto;
             width: auto;
             text-align: right;
+            padding: 0 0;
             padding: 0 $grid-column-gap-desktop;
 
             a {
@@ -146,6 +147,8 @@
                 overflow: auto;
                 text-align: right;
 
+                background-color: White;
+                z-index: 20;
                 /* width: 100%;
                 text-align: right; */
             }
@@ -157,11 +160,13 @@
 
             h1 {
                 margin: 0 0;
-                padding: 0 0 $rhytm-base 0;
-                font-size: 1.5em;
+                padding: 0 0 $rhytm-base * 2 0;
+                
+                font-size: $header-front-size-desktop;
+                line-height: $header-line-height-desktop;
+
                 display: inline-block;
                 width: 100%;
-                line-height: $header-line-height-desktop;
                 text-align: right;
                 display: inline-block;
                 border-bottom: $header-border-desktop solid Black;
@@ -174,7 +179,7 @@
             display: inline-block;
 
             // text-align: justify;
-            margin: $rhytm-base 0 0 0;
+            margin: $rhytm-base * 2 0 0 0;
             max-width: 400px;
             font-size: $text-size-desktop;
 
@@ -226,9 +231,9 @@
     @include respond-to("large") {
         // Header
         &__header {
-            h1 {
+            /* h1 {
                 font-size: 2em;
-            }
+            } */
         }
     }
 }
@@ -251,6 +256,12 @@
 
             h1 {
                 text-align: left;
+            }
+
+            a.hover,
+            a:hover {
+                // opacity: .5;
+                transform: translateX(-100px);
             }
         }
 
@@ -275,13 +286,19 @@
     // -----------------------------------------------------------------------------
     @include respond-to("medium") {
         .blog-post-teaser__header {
+            padding: 0 0;
+
             a {
-                transition: opacity .5s ease-out;
+                // transition: opacity .5s ease-out;
+                transition: transform .5s ease-out;
+                padding: $rhytm-base $grid-column-gap-desktop;
+                z-index: 20;
             }
 
             a.hover,
             a:hover {
-                opacity: .5;
+                // opacity: .5;
+                transform: translateX(100px);
             }
         }
 
