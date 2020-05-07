@@ -3,8 +3,8 @@
 // -----------------------------------------------------------------------------
 // Config.
 $hamburger-line-height: 2px;
-$hamburger-width: 4 * $rhytm-base + $rhytm-base * 1.5;
-$hamburger-height: 4 * $rhytm-base - $rhytm-base;
+$hamburger-width: 3.5 * $rhytm-base;
+$hamburger-height: 2 * $rhytm-base;
 
 .main-header {
     display: grid;
@@ -15,7 +15,7 @@ $hamburger-height: 4 * $rhytm-base - $rhytm-base;
     top: 0px;
     left: 0px;
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.85);
+    background-color: rgba(255, 255, 255, 1);
     z-index: 99;
 
     // Logo on the left.
@@ -60,10 +60,14 @@ $hamburger-height: 4 * $rhytm-base - $rhytm-base;
             // padding: 10px 0 0 0;
             outline: none;
 
+            border: solid 1px Black;
+            
+            padding: 7px 8px;
+
             //padding: 0 0;
             background-color: transparent;
-            border: none;
-            padding: ($rhytm-base / 2) 0;
+            // border: none;
+            // padding: ($rhytm-base / 2) 0;
 
             .hamburger-box {
                 pointer-events: none;
@@ -212,6 +216,7 @@ $hamburger-height: 4 * $rhytm-base - $rhytm-base;
     @include respond-to("medium") {
         gap: 0 $grid-column-gap-desktop;
         padding: $inner-padding-small $inner-padding-small;
+        background-color: rgba(255, 255, 255, 0.85);
 
         // Logo on the left.
         &__logo {
