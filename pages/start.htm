@@ -86,14 +86,16 @@ function onEnd()
                         {% endif %}
                     </a>
                 {% else %}
-                    <h1>{{ record.title }}</h1>
-                    {% if record.text %}
-                        <div>
-                            <div class="blog-post-teaser__text">
-                                {{ record.text|striptags|raw }}
+                    <div class="dummy-container">
+                        <h1>{{ record.title }}</h1>
+                        {% if record.text %}
+                            <div>
+                                <div class="blog-post-teaser__text">
+                                    {{ record.text|striptags|raw }}
+                                </div>
                             </div>
-                        </div>
-                    {% endif %}
+                        {% endif %}
+                    </div>
                 {% endif %}
             </header>
 
@@ -104,6 +106,7 @@ function onEnd()
                         <img 
                             class="lazy" 
                             alt="{{ record.cover_alt }}"
+                            src="{{ record.cover|media|resize(200) }}"
                             data-src="{{ record.cover|media|resize(850) }}"
                             data-srcset="{{ record.cover|media|resize(850) }} 850w,
                             {{ record.cover|media|resize(1200) }} 1200w,

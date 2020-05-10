@@ -21,7 +21,8 @@ document.addEventListener('mouseover', (event) => {
 		let collection = event.target.parentNode.parentNode.getElementsByClassName('js-content-loader')
 
 		for (let element of collection) {
-			element.classList.add('hover');
+			element.classList.add('hover')
+			element.parentNode.classList.add('hover');
 		}
 
 	}
@@ -36,6 +37,7 @@ document.addEventListener('mouseout', (event) => {
 
 		for (let element of collection) {
 			element.classList.remove('hover');
+			element.parentNode.classList.remove('hover');
 		}
 
 	}

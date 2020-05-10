@@ -127,7 +127,8 @@
 
         display: flex;
         flex-wrap: nowrap;
-        align-items: center;
+        // align-items: center;
+        align-items: end;
         align-content: flex-start;
         flex-direction: row;
         justify-content: space-between;
@@ -136,19 +137,28 @@
         &__header {
             order: 0;
             flex: 1 1 auto;
-            align-self: auto;
+            align-self: flex-end;
+
+
             width: auto;
             text-align: right;
             padding: 0 0;
-            padding: 0 $grid-column-gap-desktop;
+            // padding: 0 $grid-column-gap-desktop;
 
+
+            
+
+            .dummy-container,
             a {
                 display: block;
                 overflow: auto;
                 text-align: right;
                 position: relative;
-                background-color: White;
                 z-index: 20;
+                background-color: White;
+                padding: $rhytm-base $grid-column-gap-desktop;
+                margin-bottom: $rhytm-base*4;
+                
                 /* width: 100%;
                 text-align: right; */
             }
@@ -250,18 +260,13 @@
             order: 1;
             text-align: left;
 
+            .dummy-container,
             a {
                 text-align: left;
             }
 
             h1 {
                 text-align: left;
-            }
-
-            a.hover,
-            a:hover {
-                // opacity: .5;
-                transform: translateX(-100px);
             }
         }
 
@@ -274,24 +279,34 @@
         .blog-post-teaser__content.loaded.visible {
             transform: translateX(0);
         }
+
+        &.loaded.visible {
+            .blog-post-teaser__header {
+                a.hover,
+                a:hover {
+                    // opacity: .5;
+                    transform: translateX(-100px);
+                }
+            }
+        }
     }
 }
 
 // -----------------------------------------------------------------------------
 // Modifier for post with url.
 // -----------------------------------------------------------------------------
-.blog-post-teaser--has-url {
+.blog-post-teaser--has-url.loaded.visible {
     // -----------------------------------------------------------------------------
     // Media queries.
     // -----------------------------------------------------------------------------
     @include respond-to("medium") {
         .blog-post-teaser__header {
-            padding: 0 0;
+            // padding: 0 0;
 
             a {
                 // transition: opacity .5s ease-out;
                 transition: transform .5s ease-out;
-                padding: $rhytm-base $grid-column-gap-desktop;
+                // padding: $rhytm-base $grid-column-gap-desktop;
                 z-index: 20;
             }
 
@@ -334,6 +349,7 @@
             pointer-events: none;
             cursor: pointer;
 
+            &.hover,
             &:hover {
                 &::after { 
                     opacity: 1;
