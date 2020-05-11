@@ -1,6 +1,7 @@
 html, body {
     width: 100%;
     height: auto;
+
     // min-width: 100vw;
     min-height: 100vh;
     margin: 0 0;
@@ -26,7 +27,7 @@ body[aria-busy="true"] {
     left: 0;
     transition: opacity .5s ease-out;
     z-index: 1000;
-    
+
     // Center contents
     display: flex;
     flex-direction: row;
@@ -50,32 +51,71 @@ body[aria-busy="true"] {
         order: 0;
         flex: 0 1 auto;
         align-self: auto;
-        width: 48px;
-        height: 48px;
 
-        animation: rotation 2s infinite cubic-bezier(0.68, -0.55, 0.265, 1.55);
-
-        // Animation before preloade hide.
-        /* &.animate-hide {
-
-        } */
+        //width: 48px;
+        //height: 48px;
+        font-size: 0;
 
         > svg {
-            max-width: 100%;
-            height: auto;
+            //height: 64px;
+            height: 48px;
+            will-change: transform, opacity;
+        }
 
-            path {
-                fill: white;
-            }
+        > svg:first-of-type {
+            opacity: 1;
+            transform: translateX(50%);
+            animation: merge-1 2s infinite ease-in-out;
+        }
+
+        > svg:last-of-type {
+            opacity: 1;
+            transform: translateX(-50%);
+            animation: merge-2 2s infinite ease-in-out;
         }
     }
-}
 
-@keyframes rotation {
-    from {
-        transform: rotate(0deg);
+    @keyframes merge-1 {
+        0% {
+            transform: translateX(50%);
+            opacity: 1;
+        }
+
+        20% {
+            transform: translateX(-150%);
+            opacity: 0.45;
+        }
+
+        55% {
+            transform: translateX(170%);
+            opacity: 0.8;
+        }
+
+        80%,100% {
+            transform: translateX(50%);
+            opacity: 1;
+        }
     }
-    to {
-        transform: rotate(359deg);
+
+    @keyframes merge-2 {
+        0% {
+            transform: translateX(-50%);
+            opacity: 1;
+        }
+
+        20% {
+            transform: translateX(150%);
+            opacity: 0.45;
+        }
+
+        55% {
+            transform: translateX(-170%);
+            opacity: 0.8;
+        }
+
+        80%,100% {
+            transform: translateX(-50%);
+            opacity: 1;
+        }
     }
 }
