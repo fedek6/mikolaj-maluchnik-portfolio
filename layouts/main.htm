@@ -62,7 +62,12 @@ function onStart()
         }}</style>
         {% styles %}
     </head>
-    <body aria-busy="true" lang="{{ selectedLanguage }}"{% if viewBag.bodyClasses %} class="{{ viewBag.bodyClasses }}"{% endif %}>
+    <body 
+        aria-busy="true" 
+        lang="{{ selectedLanguage }}"
+        {% if viewBag.bodyClasses %} class="{{ viewBag.bodyClasses }}"{% endif %}
+        style="padding: 0 0; margin: 0 0; min-width: 100vw; min-height: 100vh;"    
+    >
         <!-- @begin: preloader -->
         {% partial 'preloader.htm' %}
         <!-- @end: preloader -->

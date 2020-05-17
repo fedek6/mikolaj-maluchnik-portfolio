@@ -13,12 +13,12 @@ import { isElementVisible } from './components/utils';
 // Little hello world to test compilers/transpilers 
 console.log('Running blog module.')
 
-
+// Hover effect.
 document.addEventListener('mouseover', (event) => {
 
 	if (event.target.classList.contains('js-content-loader')) {
 
-		let collection = event.target.parentNode.parentNode.getElementsByClassName('js-content-loader')
+		let collection = event.target.parentNode.parentNode.getElementsByClassName('blog-post-teaser__content')
 
 		for (let element of collection) {
 			element.classList.add('hover')
@@ -28,12 +28,12 @@ document.addEventListener('mouseover', (event) => {
 	}
 }, false);
 
-
+// Mouse out.
 document.addEventListener('mouseout', (event) => {
 
 	if (event.target.classList.contains('js-content-loader')) {
 
-		let collection = event.target.parentNode.parentNode.getElementsByClassName('js-content-loader')
+		let collection = event.target.parentNode.parentNode.getElementsByClassName('blog-post-teaser__content')
 
 		for (let element of collection) {
 			element.classList.remove('hover');

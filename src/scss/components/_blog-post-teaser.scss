@@ -133,6 +133,8 @@
         flex-direction: row;
         justify-content: space-between;
 
+        height: calc(100vh - #{$sticky-menu-height-destkop});
+
         // Header
         &__header {
             order: 0;
@@ -145,6 +147,9 @@
             padding: 0 0;
             // padding: 0 $grid-column-gap-desktop;
 
+            opacity: 0;
+            transition: opacity 1s ease-out;
+            transition-delay: .25s;
 
             
 
@@ -230,10 +235,16 @@
             }
         }
 
-        // Content loaded animation.
-        &__content.visible.loaded {
-            transform: translateX(0);
-            opacity: 1;
+        &.loaded {
+            // Content loaded animation.
+            .blog-post-teaser__content.visible {
+                transform: translateX(0);
+                opacity: 1;
+            }
+
+            .blog-post-teaser__header {
+                opacity: 1;
+            }
         }
     }
 
@@ -263,6 +274,12 @@
             .dummy-container,
             a {
                 text-align: left;
+
+                // Arrow "read more"
+                &::after {
+                    background-position: right center;
+                    transform: rotate(-180deg);
+                }
             }
 
             h1 {
@@ -295,11 +312,46 @@
 // -----------------------------------------------------------------------------
 // Modifier for post with url.
 // -----------------------------------------------------------------------------
+
+// Initial.
+.blog-post-teaser--has-url { 
+    // -----------------------------------------------------------------------------
+    // Media queries.
+    // -----------------------------------------------------------------------------
+    @include respond-to("medium") {
+        .blog-post-teaser__header {
+            a {
+                display: inline-block;
+
+                // Arrow "read more"
+                &::after {
+                    content: "";
+                    display: block;
+                    height: $rhytm-base * 4;
+                    width: 100%;
+                    min-width: auto;
+
+                    margin: $rhytm-base * 2 0 0 0;
+                    border: none;
+                    
+                    background-image: url("../images/arrow-right.svg");
+                    background-repeat: no-repeat;
+                    background-size: auto 100%;
+                    background-color: transparent;
+                    background-position: right center;
+                }
+            }
+        }
+    }
+}
+
+// Loaded.
 .blog-post-teaser--has-url.loaded.visible {
     // -----------------------------------------------------------------------------
     // Media queries.
     // -----------------------------------------------------------------------------
     @include respond-to("medium") {
+
         .blog-post-teaser__header {
             // padding: 0 0;
 
@@ -322,7 +374,7 @@
             position: relative;
 
             // Arrow icon.
-            &::after {
+            /* &::after {
                 content: "";
                 width: 80px;
                 height: 80px;
@@ -341,7 +393,7 @@
 
                 transition: opacity .5s;
                 opacity: 0;
-            } 
+            } */
         }
 
         // Effects only when image is loaded.
@@ -351,27 +403,18 @@
 
             &.hover,
             &:hover {
-                &::after { 
+                /* &::after { 
                     opacity: 1;
+                }*/
+
+                img {
+                    opacity: 0.8;
+                    filter: grayscale(100%) contrast(70%);
                 }
             }
-
-
 
             img {
                 transition: all .5s ease-in-out;
-            }
-
-            a {
-                pointer-events: all;
-            }
-
-            a.hover,
-            a:hover {
-                img {
-                    opacity: 0.5;
-                    filter: grayscale(100%);
-                }
             }
         }
     }

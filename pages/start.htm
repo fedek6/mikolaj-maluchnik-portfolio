@@ -100,27 +100,21 @@ function onEnd()
             </header>
 
             <div class="blog-post-teaser__content">
-                {% if hasUrl %}
-                    <a href="{{ record.url }}" class="js-content-loader">
-                {% endif %}
-                        <img 
-                            class="lazy" 
-                            alt="{{ record.cover_alt }}"
-                            src="{{ record.cover|media|resize(200) }}"
-                            data-src="{{ record.cover|media|resize(850) }}"
-                            data-srcset="{{ record.cover|media|resize(850) }} 850w,
-                            {{ record.cover|media|resize(1200) }} 1200w,
-                            {{ record.cover|media|resize(1600) }} 1600w,
-                            {{ record.cover|media|resize(2000) }} 2000w"
-                            data-sizes="(min-width: 2500px) 2500px,
-                                (max-width: 2500px) and (min-width: 1600px) 1600px,
-                                (max-width: 1600px) and (min-width: 1200px) 1200px,
-                                (max-width: 1200px) 850px,
-                                100vw"
-                        >
-                {% if hasUrl %}
-                    </a>
-                {% endif %}
+                <img 
+                    class="lazy" 
+                    alt="{{ record.cover_alt }}"
+                    src="{{ record.cover|media|resize(200) }}"
+                    data-src="{{ record.cover|media|resize(850) }}"
+                    data-srcset="{{ record.cover|media|resize(850) }} 850w,
+                        {{ record.cover|media|resize(1200) }} 1200w,
+                        {{ record.cover|media|resize(1600) }} 1600w,
+                        {{ record.cover|media|resize(2000) }} 2000w"
+                    data-sizes="(min-width: 2500px) 2500px,
+                        (max-width: 2500px) and (min-width: 1600px) 1600px,
+                        (max-width: 1600px) and (min-width: 1200px) 1200px,
+                        (max-width: 1200px) 850px,
+                        100vw"
+                >
             </div>
         </article>
     {% else %}

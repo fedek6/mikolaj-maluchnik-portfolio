@@ -32,7 +32,7 @@ window.addEventListener('load', (event) => {
 
     // Hide preloader
     setTimeout( () => {
-        hidePreloader()
+       hidePreloader()
     }, 1000)
     
     /** @var {object} menu */
